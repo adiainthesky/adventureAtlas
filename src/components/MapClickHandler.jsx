@@ -6,3 +6,5 @@ export const MapClickHandler = ({onClick}) => {
     })
     return null
 }
+
+

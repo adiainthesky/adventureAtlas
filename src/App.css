@@ -18,7 +18,11 @@
   }
 }
 
-.pop-up {
+.pop-up-bubble {
+  border: 5px solid rgb(125, 5, 5);
+}
+
+.pop-up-img {
   max-height: 300px;
 }
 
