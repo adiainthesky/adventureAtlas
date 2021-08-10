@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { MapContainer, useMapEvent, Marker, Popup, TileLayer } from "react-leaflet";
 import { Icon } from "leaflet";
-import * as fauxData from "./fauxData.json";
+import * as fauxData from "../fauxData.json";
 import './Map.css';
 import { MapClickHandler } from "./MapClickHandler";
-import ImgUpload from "./ImgUpload";
-import Title from './Title';
-import UploadForm from './UploadForm';
-import ImageGrid from './ImageGrid';
-import FrontImg from './FrontImg';
+import ImgUpload from "../../components/ImgUpload";
+import Title from '../Title';
+import UploadForm from '../tripDisplay/UploadForm';
+import ImageGrid from '../tripDisplay/ImageGrid';
+import FrontImg from '../tripDisplay/FrontImg';
 
 export const thumbtack = new Icon({
   iconUrl: "/simple-luggage.svg",

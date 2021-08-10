@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-// import './FormSignIn.css';
-import FormSignup from './FormSignup';
+// import './Form.css';
+import FormSignup from '../comps/signUp/SignUp';
 // import FormSuccess from '../../components/FormSuccess';
 
 const Form = () => {

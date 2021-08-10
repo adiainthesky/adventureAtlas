@@ -1,7 +1,7 @@
 import React from 'react';
 // import validate from './validateInfo';
 import useFormSignIn from './useFormSignIn';
-import './FormSignIn.css';
+import '../Form.css';
 
 const TripForm = ({ submitForm }) => {
     const { handleChange, handleSubmit, values, errors } = useFormSignIn(

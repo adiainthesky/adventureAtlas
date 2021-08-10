@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { useEffect } from 'react';
-import useStorage from  '../hooks/useStorage';
+import useStorage from  '../../hooks/useStorage';
 
 
 const ProgressBar = ({ file, setFile }) => {
