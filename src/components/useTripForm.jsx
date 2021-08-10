@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-// const useTripForm = (callback, validate) => {
-const useTripForm = (callback) => {
+const useTripForm = (callback, validate) => {
+// const useTripForm = (callback) => {
     const [values, setValues] = useState({
         username: '',
         email: '',

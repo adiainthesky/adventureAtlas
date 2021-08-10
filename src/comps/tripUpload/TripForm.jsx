@@ -72,7 +72,7 @@ const TripForm = ({ submitForm }) => {
                 {errors.photo && <p>{errors.photo}</p>}
             </div>
             <button className='form-input-btn' type='submit'>
-            Sign up
+            Save Your Trip
             </button>
         </form>
         </div>
