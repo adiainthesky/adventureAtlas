@@ -6,9 +6,13 @@ const TripUpload = () => {
     const [trip_name, setTrip_name] = useState("");
     const [location, setLocation] = useState("");
     const [description, setDescription] = useState("");
+    const [photo, setPhoto] = useState(null);
+    const [error, setError] = useState(null);
 
     const [loader, setLoader] = useState(false);
 
+    const types = ['image/png', 'image/jpeg'];    
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         setLoader(true)
@@ -32,6 +36,18 @@ const TripUpload = () => {
             setLocation("");
             setDescription("");
     };
+
+    const changeHandler = (e) => {
+        let selected = e.target.files[0];
+
+        if (selected && types.includes(selected.type)) {
+            setPhoto(selected);
+            setError('');
+        } else {
+            setPhoto(null);
+            setError('Please select a .png or .jpeg image file');
+        }
+    }
 
     return (
         <form className="form" onSubmit={handleSubmit}>
@@ -57,6 +73,22 @@ const TripUpload = () => {
                 onChange={(e) => setDescription(e.target.value)} 
                 ></textarea>
 
+            <label>Photo</label>
+            <form>
+                <input 
+                    type="file"
+                    placeholder="Photo"
+                    // value={photo}
+                    onChange={changeHandler} 
+                />
+                <div className="output">
+                {/* if left conditional is true, then output left conditional */}
+                { error && <div className="error">{ error }</div> }
+                { photo && <div> { photo.name }</div> }
+                {/* { file && <ProgressBar file={file} setFile={setFile}/> } */}
+                </div>
+            </form>
+            
             {/* if loading is true, button will change color */}
             <button type="submit" style={{background : loader ? "#ccc" : " rgb(2,2,110" }}>
                 Add trip!
