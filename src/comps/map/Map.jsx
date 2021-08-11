@@ -55,7 +55,7 @@ const Form = () => {
                 ]}
                 >
                 <div className="pop-up-bubble"> 
-                    
+
                     {/* <Title/> */}
                     {/* <UploadForm /> */}
                     {/* <ImageGrid setSelectedImg={setSelectedImg} /> */}
@@ -63,8 +63,10 @@ const Form = () => {
                     {/* { selectedImg && ( */}
                     {/* <FrontImg selectedImg={selectedImg} setSelectedImg={setSelectedImg} /> */}
                     {/* )} */}
-                    <TripUpload />
-                    </div>
+                    <div className="form">
+                        <TripUpload /> 
+                    </div>                    
+                </div>
             </Popup>
                 </Marker>
         ))}

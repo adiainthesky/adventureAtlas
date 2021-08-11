@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+
 import "./tripUpload.css"
 import { projectStorage, db } from '../../firebase/config.js'
 
@@ -81,7 +82,6 @@ const TripUpload = () => {
 
     return (
         <form className="form" onSubmit={handleSubmit}>
-            <h1>Trip info</h1>
             <label>Trip Name</label>
             <input 
                 placeholder="Trip Name"

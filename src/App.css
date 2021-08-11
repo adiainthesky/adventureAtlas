@@ -18,13 +18,16 @@
   }
 }
 
+/* put inside of tripUpload.css instead
 .pop-up-bubble {
-  border: 5px solid rgb(125, 5, 5);
-}
+  border: 5px solid rgb(63, 16, 97);
+  min-height: 500px;
+  min-width: 300px;
+} */
 
-.pop-up-img {
+/* .pop-up-img {
   max-height: 300px;
-}
+} */
 
 .App-header {
   background-color: #282c34;
