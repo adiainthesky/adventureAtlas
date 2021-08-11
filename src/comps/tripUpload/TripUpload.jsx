@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "./tripUpload.css"
-import { db } from '../../firebase/config.js'
+import { projectStorage, db } from '../../firebase/config.js'
 
 const TripUpload = () => {
     const [trip_name, setTrip_name] = useState("");
@@ -10,6 +10,7 @@ const TripUpload = () => {
     const [error, setError] = useState(null);
 
     const [loader, setLoader] = useState(false);
+    const [progress, setProgress] = useState(0);
 
     const types = ['image/png', 'image/jpeg'];    
     
@@ -17,11 +18,26 @@ const TripUpload = () => {
         e.preventDefault();
         setLoader(true)
 
-        db.collection('trips')
+        // get url for photo 
+        const storageRef = projectStorage.ref(photo.name);
+
+        storageRef.put(photo).on('state_changed', (snap) => {
+            let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
+            setProgress(percentage);
+        }, (err) => {
+            setError(err);
+        }, async () => {
+            const url = await storageRef.getDownloadURL();
+            // const createdAt = timestamp();
+            // collectionRef.add({ url, createdAt });
+            // setUrl(url);
+
+            db.collection('trips')
             .add({
                 trip_name: trip_name,
                 location: location,
                 description: description,
+                photo: url,
             })
             .then(() => {
                 alert('Your trip has been submitted!');
@@ -35,6 +51,9 @@ const TripUpload = () => {
             setTrip_name("");
             setLocation("");
             setDescription("");
+        })
+
+
     };
 
     const changeHandler = (e) => {
@@ -84,6 +103,7 @@ const TripUpload = () => {
                 <div className="output">
                 {/* if left conditional is true, then output left conditional */}
                 { error && <div className="error">{ error }</div> }
+                {/* this shows the name of the file if it uploaded */}
                 { photo && <div> { photo.name }</div> }
                 {/* { file && <ProgressBar file={file} setFile={setFile}/> } */}
                 </div>

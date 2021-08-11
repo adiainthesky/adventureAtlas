@@ -3,16 +3,16 @@ import { useEffect } from 'react';
 import useStorage from  '../../hooks/useStorage';
 
 
-const ProgressBar = ({ file, setFile }) => {
-    const { url, progress } = useStorage(file);
+const ProgressBar = ({ photo, setPhoto }) => {
+    const { url, progress } = useStorage(photo);
 
 
     useEffect(() => {
         if (url) {
-            setFile(null);
+            setPhoto(null);
         }
-        // ????why do i need to pass in the the setFile????
-    }, [url, setFile]);
+        // ????why do i need to pass in the the setPhoto????
+    }, [url, setPhoto]);
 
     return (
         <div className="progress-bar" style={{ width: progress + '%' }}>progress...</div>
