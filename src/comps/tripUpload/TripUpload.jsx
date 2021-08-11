@@ -2,8 +2,28 @@ import React, { useState } from 'react'
 import "./tripUpload.css"
 import { projectStorage, db } from '../../firebase/config.js'
 
+const uploadTripToDB = ( tripData, setLoader ) => {
+    const { tripName, location, description, url } = tripData
+    db.collection('trips')
+    .add({
+        tripName: tripName,
+        location: location,
+        description: description,
+        photo: url,
+    })
+    .then(() => {
+        alert('Your trip has been submitted!');
+        setLoader(false);
+    })
+    .catch(error => {
+        alert(error.message);
+        setLoader(false);
+    });
+    
+}
+
 const TripUpload = () => {
-    const [trip_name, setTrip_name] = useState("");
+    const [tripName, setTripName] = useState("");
     const [location, setLocation] = useState("");
     const [description, setDescription] = useState("");
     const [photo, setPhoto] = useState(null);
@@ -14,6 +34,13 @@ const TripUpload = () => {
 
     const types = ['image/png', 'image/jpeg'];    
     
+    const resetStateAfterUpload = () => {
+        setTripName("");
+        setLocation("");
+        setDescription("");
+        setPhoto(null);
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         setLoader(true)
@@ -32,25 +59,9 @@ const TripUpload = () => {
             // collectionRef.add({ url, createdAt });
             // setUrl(url);
 
-            db.collection('trips')
-            .add({
-                trip_name: trip_name,
-                location: location,
-                description: description,
-                photo: url,
-            })
-            .then(() => {
-                alert('Your trip has been submitted!');
-                setLoader(false);
-            })
-            .catch(error => {
-                alert(error.message);
-                setLoader(false);
-            });
+            uploadTripToDB({ tripName, location, description, url }, setLoader)
+            resetStateAfterUpload()
 
-            setTrip_name("");
-            setLocation("");
-            setDescription("");
         })
 
 
@@ -74,8 +85,8 @@ const TripUpload = () => {
             <label>Trip Name</label>
             <input 
                 placeholder="Trip Name"
-                value={trip_name}
-                onChange={(e) => setTrip_name(e.target.value)} 
+                value={tripName}
+                onChange={(e) => setTripName(e.target.value)} 
                 />
 
             <label>Location</label>
