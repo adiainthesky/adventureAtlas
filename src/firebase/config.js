@@ -1,10 +1,11 @@
 import firebase from 'firebase/app';
 // import * as firebase from 'firebase/app';
+import 'firebase/auth';
 import 'firebase/storage';
 import 'firebase/firestore';
 
 // Your web app's Firebase configuration
-var firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyBh9juNL7wta6pe-Sv8eW7LJe3s7qv-6bw",
     authDomain: "geopics2.firebaseapp.com",
     projectId: "geopics2",
@@ -12,24 +13,43 @@ var firebaseConfig = {
     messagingSenderId: "1041424168508",
     ppId: "1:1041424168508:web:432c49af231e969ff4b539"
 };
-// Initialize Firebase
+
+// Initialize Firebase 
 firebase.initializeApp(firebaseConfig);
+// const db = firebaseApp.firestore();
 
-
-// // Your web app's Firebase configuration
-// var firebaseConfig = {
-// apiKey: "AIzaSyAUr1C7y-VMMLlfGeOvATNk-EWwCxfMoao",
-// authDomain: "geopicslive.firebaseapp.com",
-// projectId: "geopicslive",
-// storageBucket: "geopicslive.appspot.com",
-// messagingSenderId: "1000797976567",
-// appId: "1:1000797976567:web:4caa4fc414ed40098660f2"
-// };
-// // Initialize Firebase
-// firebase.initializeApp(firebaseConfig);
 
 const projectStorage = firebase.storage();
-const projectFirestore = firebase.firestore();
+const db = firebase.firestore();
 const timestamp = firebase.firestore.FieldValue.serverTimestamp;
 
-export { projectStorage, projectFirestore, timestamp };
+export { projectStorage, db, timestamp };
+
+// // Rest from another tutorial
+// class Firebase{
+//     constructor(){
+//         firebase.initializeApp(FirebaseConfig);
+//         this.auth = firebase.auth();
+//         this.firestore = firebase.firestore();
+//     }
+
+//     async signin(email, password){
+//         const user = await firebase.auth().createUserWithEmailAndPassword(email, password).catch( err => {
+//             console.log(err);
+//         });
+//     }
+//     async login(email, password){
+//         const user = await firebase.auth().signInWithEmailAndPassword(email, password).catch( err => {
+//             console.log(err);
+//         });
+//         return user;
+//     }
+
+//     async logout(){
+//         await firebase.auth().signOut().catch(err => {
+//             console.log(err);
+//         });
+//     }    
+// }
+
+// export default new Firebase();

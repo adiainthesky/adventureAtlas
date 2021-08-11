@@ -9,6 +9,7 @@ import Title from '../Title';
 import UploadForm from '../tripDisplay/UploadForm';
 import ImageGrid from '../tripDisplay/ImageGrid';
 import FrontImg from '../tripDisplay/FrontImg';
+import TripUpload from "../tripUpload/TripUpload";
 
 export const thumbtack = new Icon({
   iconUrl: "/simple-luggage.svg",
@@ -55,13 +56,14 @@ const Form = () => {
                 >
                 <div className="pop-up-bubble"> 
                     
-                    <Title/>
-                    <UploadForm />
-                    <ImageGrid setSelectedImg={setSelectedImg} />
+                    {/* <Title/> */}
+                    {/* <UploadForm /> */}
+                    {/* <ImageGrid setSelectedImg={setSelectedImg} /> */}
                     {/* only showing frontImg IF one exists (ie, left condition == true) */}
-                    { selectedImg && (
-                    <FrontImg selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
-                    )}
+                    {/* { selectedImg && ( */}
+                    {/* <FrontImg selectedImg={selectedImg} setSelectedImg={setSelectedImg} /> */}
+                    {/* )} */}
+                    <TripUpload />
                     </div>
             </Popup>
                 </Marker>
