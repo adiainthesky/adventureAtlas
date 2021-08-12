@@ -4,6 +4,7 @@ import Map from "./comps/map/Map";
 import TripForm from "./comps/oldTripUpload/TripForm";
 import SignUp from "./comps/signUp/SignUp";
 import TripUpload from "./comps/tripUpload/TripUpload";
+import TripDisplay from "./comps/tripDisplay/TripDisplay";
 
 
 
@@ -14,6 +15,7 @@ export default function App() {
       <Map />
       {/* <SignUp /> */}
       {/* <TripUpload /> */}
+      {/* <TripDisplay /> */}
     </div>
     
   );  
