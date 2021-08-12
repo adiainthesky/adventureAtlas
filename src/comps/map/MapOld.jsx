@@ -5,7 +5,6 @@ import * as fauxData from "../2fauxData.json";
 import './Map.css';
 import { MapClickHandler } from "./MapClickHandler";
 import ImgUpload from "../../components/ImgUpload";
-import Title from '../Title';
 import UploadForm from '../tripDisplay/UploadForm';
 import ImageGrid from '../tripDisplay/ImageGrid';
 import FrontImg from '../tripDisplay/FrontImg';

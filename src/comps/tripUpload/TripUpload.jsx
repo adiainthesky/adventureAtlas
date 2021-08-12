@@ -25,7 +25,7 @@ const uploadTripToDB = ( lat, lng, tripData, setLoader ) => {
     
 }
 
-const TripUpload = () => {
+const TripUpload = ({lat, lng}) => {
     const [tripName, setTripName] = useState("");
     const [location, setLocation] = useState("");
     const [description, setDescription] = useState("");
@@ -62,7 +62,7 @@ const TripUpload = () => {
             // collectionRef.add({ url, createdAt });
             // setUrl(url);
 
-            uploadTripToDB({ tripName, location, description, url }, setLoader)
+            uploadTripToDB(lat, lng, { tripName, location, description, url }, setLoader)
             resetStateAfterUpload()
 
         })
