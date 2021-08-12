@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import "./tripUpload.css"
 import { projectStorage, db } from '../../firebase/config.js'
 
-const uploadTripToDB = ( tripData, setLoader ) => {
+const uploadTripToDB = ( lat, lng, tripData, setLoader ) => {
     const { tripName, location, description, url } = tripData
     db.collection('trips')
     .add({
@@ -11,6 +11,8 @@ const uploadTripToDB = ( tripData, setLoader ) => {
         location: location,
         description: description,
         photo: url,
+        lat: lat,
+        lng: lng,
     })
     .then(() => {
         alert('Your trip has been submitted!');

@@ -6,74 +6,74 @@ import './Map.css';
 import { MapClickHandler } from "./MapClickHandler";
 import ImgUpload from "../../components/ImgUpload";
 import Title from '../Title';
-import UploadForm from '../tripDisplay/UploadForm';
-import ImageGrid from '../tripDisplay/ImageGrid';
-import FrontImg from '../tripDisplay/FrontImg';
+import UploadForm from '../oldTripDisplay/UploadForm';
+import ImageGrid from '../oldTripDisplay/ImageGrid';
+import FrontImg from '../oldTripDisplay/FrontImg';
 import TripUpload from "../tripUpload/TripUpload";
+import useFirestore from '../../hooks/useFirestoreTrip';
+
+
+
+// import L from 'leaflet';
+// delete L.Icon.Default.prototype._getIconUrl;
+// // Importing images from locally stored assets to address a bug
+// // in CodeSandbox: https://github.com/codesandbox/codesandbox-client/issues/3845
+// L.Icon.Default.mergeOptions({
+//     iconRetinaUrl: require('./images/marker-icon-2x.png'),
+//     iconUrl: require('./images/marker-icon.png'),
+//     shadowUrl: require('./images/marker-shadow.png')
+// });
 
 export const thumbtack = new Icon({
-  iconUrl: "/simple-luggage.svg",
-  iconSize: [35, 35]
+    iconUrl: "/simple-luggage.svg",
+    iconSize: [35, 35]
 });
 
-const Form = () => {
+const Map = () => {
 
-    const [features, setFeatures] = React.useState(fauxData.features);
+    const trips = useFirestore('trips');
+    console.log(trips);
     const url = 'https://storage.googleapis.com/geophotoalbum.appspot.com/tommy'
     const [selectedImg, setSelectedImg] = useState(null);
+    // might be useful to add lat and long coordinate to replace null
+    const [locations, setLocation] = useState([{lat: -75.7, lng: 45.4}]);
 
     return (
         <MapContainer center={[45.4, -75.7]} zoom={12}>
-        <MapClickHandler onClick={ (event)=> {
-            console.log("hello")
-            const nextFeatures = [...features, {geometry: {coordinates: [event.latlng.lng, event.latlng.lat]}, properties: {NAME: "new name", DESCRIPTIO: "new description"}} ]
-            setFeatures(nextFeatures)
-            //call API to update features, and if not successful, reset the setFeastures we just called BACK to what it was b4 
+        {/* <MapClickHandler onClick={ (event)=> {
+            const allLocations = [...trips, {lng: event.latlng.lng, lat: event.latlng.lat} ];
+            setLocation(allLocations)
+            console.log(locations[0].lng);
+            <Popup />
+            //call API to update trips, and if not successful, reset the setFeastures we just called BACK to what it was b4 
             //warning: if you click 3 times fast and last not successful, it dangerous.  Sara can send me notes since this is apparently a very common pattern (called "eagerly updating the UI", as opposed to "lazily" updating UI)
-        }}/>
+        }}/> */}
         <TileLayer
             url="https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}"
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> 
             contributors'
-            />
+        />
 
-            {features.map(location => (
-            <Marker
-                key={location.properties.PARK_ID}
-                position={[
-                //their lat/long is in reverse order so below the [1] comes before the [0]
-                location.geometry.coordinates[1],
-                location.geometry.coordinates[0]
-                ]}
-                icon={thumbtack}
-            >
-            <Popup
-            //like a location, popups need to know their location
-                position={[
-                    location.geometry.coordinates[1],
-                    location.geometry.coordinates[0]
-                ]}
-                >
-                <div className="pop-up-bubble"> 
-
-                    {/* <Title/> */}
-                    {/* <UploadForm /> */}
-                    {/* <ImageGrid setSelectedImg={setSelectedImg} /> */}
-                    {/* only showing frontImg IF one exists (ie, left condition == true) */}
-                    {/* { selectedImg && ( */}
-                    {/* <FrontImg selectedImg={selectedImg} setSelectedImg={setSelectedImg} /> */}
-                    {/* )} */}
-                    <div className="form">
-                        <TripUpload /> 
+        {trips.map(location => (
+            <Marker position={location} icon={thumbtack}>
+                <Popup>            >
+                    <div className="pop-up-bubble"> 
+                        <TripUpload lat={location[0].lat} lng={location[0].lng} tripData="" setLoader=""/>
+                        {/* <Title/> */}
+                        {/* <UploadForm /> */}
+                        {/* <ImageGrid setSelectedImg={setSelectedImg} /> */}
+                        {/* only showing frontImg IF one exists (ie, left condition == true) */}
+                        {/* { selectedImg && ( */}
+                        {/* <FrontImg selectedImg={selectedImg} setSelectedImg={setSelectedImg} /> */}
+                        {/* )} */}
                     </div>                    
-                </div>
-            </Popup>
-                </Marker>
+                </Popup>
+            </Marker>
         ))}
         </MapContainer>
     );  
 }
 
-export default Form;
+export default Map;
 
 
