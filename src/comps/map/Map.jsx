@@ -14,7 +14,7 @@ import useData from '../../hooks/useData';
 
 export const thumbtack = new Icon({
     iconUrl: "/simple-luggage.svg",
-    iconSize: [35, 35]
+    iconSize: [27, 27]
 });
 
 const Map = () => {

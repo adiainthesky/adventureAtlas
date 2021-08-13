@@ -31,3 +31,5 @@ const useStorage = (photo) => {
 }
 
 export default useStorage
+
+

@@ -12,9 +12,7 @@ const useFirestore = (collection) => {
             // .orderBy('createdAt', 'desc')
             .onSnapshot((snap) => {
                 let documents = [];
-                console.log("^^^^^^^^^^^^^^^^^^^^^^")
                 snap.forEach(doc => {
-                    console.log("$$$$$$$$$$$$$$$$$$$$$$$$")
                     documents.push({...doc.data(), id: doc.id});
                 });
                 setDocs(documents);
@@ -32,10 +30,28 @@ const useFirestore = (collection) => {
         // fetchLoctions()
 
 
-
     }, [collection])
-
     return { docs };
 }
 
 export default useFirestore
+
+
+
+// const TripDisplay = () => {
+//     return firebase
+//     .firestore()
+//     .collection("trips")
+//     .get()
+//     .then(function(querySnapshot){
+//         querySnapshot.forEach(function(doc) {
+//             let newData = doc.data();
+//             TripDisplay.indexOf(newData.id) {
+//                 setTrips((arr) => {
+//                     return [...arr,newData]
+//                 })
+//             }    
+//         }
+//     })
+//     .catch()
+// };
