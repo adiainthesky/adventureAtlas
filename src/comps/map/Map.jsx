@@ -7,7 +7,8 @@ import ImgUpload from "../../components/ImgUpload";
 import UploadForm from '../oldTripDisplay/UploadForm';
 import ImageGrid from '../oldTripDisplay/ImageGrid';
 import FrontImg from '../oldTripDisplay/FrontImg';
-import TripUpload from "../tripUpload/TripUpload";
+import TripUpload from '../tripUpload/TripUpload';
+import TripDisplay from '../tripDisplay/TripDisplay';
 import useFirestore from '../../hooks/useFirestore';
 import useData from '../../hooks/useData';
 
@@ -30,37 +31,23 @@ const Map = () => {
 
     return (
         <MapContainer center={[45.4, -75.7]} zoom={2.5}>
-            {/* set luggage click-handler */}
         <MapClickHandler onClick={ (event)=> {
             setLat_Lng({lat: event.latlng.lat, lng: event.latlng.lng})
-            const allLocations = [...trips, {lat: event.latlng.lat, lng: event.latlng.lng} ];
-            setLocations(allLocations)
             setUploadIsActive(true)
-            // <Popup>            
-            //     <div className="pop-up-bubble"> 
-            //         <TripUpload lat={location.lat} lng={location.lng} />
-            //     </div>                    
-            // </Popup>
-
             //call API to update trips, and if not successful, reset the setFeastures we just called BACK to what it was b4 
             //warning: if you click 3 times fast and last not successful, it dangerous.  Sara can send me notes since this is apparently a very common pattern (called "eagerly updating the UI", as opposed to "lazily" updating UI)
         }}/>
 
-
-{uploadIsActive ? 
+        {uploadIsActive ? 
             <Marker position={lat_lng}>
-                <Popup>            
+                <Popup>   
                     <div className="pop-up-bubble"> 
-
                         <TripUpload lat={lat_lng.lat} lng={lat_lng.lng} />
-
                     </div>                    
                 </Popup>
             </Marker>
         : ""}
 
-        {/* {uploadIsActive && <TripUpload lat_lng />} */}
-        {/* {uploadIsActive && <TripUpload lat={event.latlng.lat} lng={event.latlng.lng} />} */}
 
         <TileLayer
             url="https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}"
@@ -69,9 +56,12 @@ const Map = () => {
         />
 
         {locations && locations.map(location => ( 
-            <Marker position={location} icon={thumbtack}>
+            <Marker key={location.id} position={location} icon={thumbtack}>
                 <Popup>            
-                    <div className="pop-up-bubble"> 
+                    <div className="pop-up-bubble">
+                        <TripDisplay trips={trips} id={location.id}/>
+                        {/* <TripDisplay photo={location.photo}/> */}
+
                         {/* {location.trip_name && (
                             <h3>TRIP!</h3>
                         )} */}
@@ -82,7 +72,7 @@ const Map = () => {
                         {/* { selectedImg && ( */}
                         {/* <FrontImg selectedImg={selectedImg} setSelectedImg={setSelectedImg} /> */}
                         {/* )} */}
-                    </div>                    
+                    </div>         
                 </Popup>
             </Marker>
         ))}
