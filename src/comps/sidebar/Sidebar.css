@@ -13,14 +13,15 @@
     font-size: 45px;
 }
 
+/* this isnt really used
 .sidebar {
-    background-color: #060b26;
+    background-color: #a51d73;
     height: 80px;
     display: flex;
     justify-content: start;
     align-items: center;
     color: teal;
-}
+} */
 /* 
 .menu-bars {
     /* margin-left: 2rem;
@@ -30,14 +31,16 @@
 
 .side-menu {
     background-color: #060b26;
+    /* this stays set with sizing */
     width: 250px;
+    /* this changes with resizing but text doesnt fully match with side-text*/
     height: 33vh;
     display: flex;
     justify-content: center;
     position: fixed;
     top: 0;
     /* this is what moves it so far to the left that its hidden */
-    left: -100%;
+    /* left: -100%; */
     transition: 850ms;
 }
 
@@ -51,7 +54,8 @@
     text-decoration: none;
     color: #f5f5f5;
     font-size: 18px;
-    height: 60px;
+    /* allows it to adjust with screen-resizing, but is not coordinated with side-menu height */
+    height: 6vh;
     width: 95%;
     display: flex;
     align-items: center;
@@ -94,4 +98,41 @@
 
 span {
     margin-left: 16px;
+}
+
+.modalBackground {
+    /* means its hidden  */
+    opacity: 0;
+    /* means even if its hidden, you cant accidentally interact with it */
+    pointer-events: none;
+    transition: opacity 0.4s ease-in-out;
+    /* for some reason this stopped the button (and maybe all of modal?) from appearing at the bottom of the page */
+    position: absolute;
+    /* left: 0;
+    right: 0; 
+    bottom: 0;
+    top: 0; 
+    width: 100%; 
+    height: 100%;  */
+    background-color: grey;
+    display: flex;
+
+}
+
+.modalShowing-true {
+    opacity: 1;
+    pointer-events: showing;
+    color: tomato;
+}
+
+.modalInner {
+    width: 900px;
+    /* provides extra padding on right for when we reduce screen size */
+    max-width: calc(100% - 60px);
+    /* because we have .modalBackground display set to 'flex', this will center the imagine */
+    margin: auto;
+}
+
+.modalImage img {
+    width: 100%;
 }
