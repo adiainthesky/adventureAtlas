@@ -18,17 +18,18 @@ const Sidebar = () => {
     return (
         // this allows me to customize all icons at once
         <div>
-        <IconContext.Provider value={{ color: 'teal' }}>
-            <div className="sidebar">
+        <IconContext.Provider value={{ color: 'purple' }}>
+            <div className="info-click">
                 <div className='menu-bars'>
-                    <FaIcons.FaBars onClick={showSidebar} />
+                    {/* <FaIcons.FaBars onClick={showSidebar} /> */}
+                    <div className='info-icon' onClick={showSidebar}>Info</div>
                 </div>
             </div>
             {/* if the sidebar is selected, the classsName will be 'nav-menu active' (meaning its showing),
             or 'nav-menu', which means its hidden */}
             <nav className={sidebar ? 'side-menu active' : 'side-menu'}>
                 <ul className='side-menu-items' onClick={showSidebar}>
-                    <li className="sidebar-togg">
+                    <li className="closer">
                         <div className='menu-bars'>
                             {/* got below icon from 'https://react-icons.github.io/' then imported above' */}
                             <CgIcons.CgCloseR />

@@ -34,7 +34,7 @@ const Map = () => {
         // <div>
         //     <Sidebar /> 
         // {/* set zoomControl to false since i am importing a new one that i can adjust */}
-            <MapContainer center={[27.4, -45.7]} zoom={2.5} zoomControl={false}>
+            <MapContainer center={[20.555, -25.555]} zoom={2.5} zoomControl={false}>
                 <ZoomControl position="bottomright" zoomInText="🔎" zoomOutText="🌎"></ZoomControl>
                 <MapClickHandler onClick={ (event)=> {
                     setLat_Lng({lat: event.latlng.lat, lng: event.latlng.lng})

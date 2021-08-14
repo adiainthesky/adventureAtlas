@@ -2,7 +2,15 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: papyrus, Luminari, Marker Felt;
+    /* color: teal; */
+}
+
+.info-icon {
+    padding-top: 35px;
+    padding-left: 40px;
+    color: purple;
+    font-size: 45px;
 }
 
 .sidebar {
@@ -11,18 +19,19 @@
     display: flex;
     justify-content: start;
     align-items: center;
+    color: teal;
 }
-
+/* 
 .menu-bars {
-    margin-left: 2rem;
-    font-size: 2rem;
-    background: none;
-}
+    /* margin-left: 2rem;
+    font-size: 2rem; */
+    /* background: none; */
+/* }  */
 
 .side-menu {
     background-color: #060b26;
     width: 250px;
-    height: 100vh;
+    height: 33vh;
     display: flex;
     justify-content: center;
     position: fixed;
@@ -52,26 +61,36 @@
     justify-content: start;
     align-items: center;
     /* this padding shows up to the left when you hover over the button (and color changes) */
-    padding: 8px 0px 8px 16px;
+    padding: 10px 0px 8px 20px;
     list-style: none;
+}
+/* .closer :hover {
+    background-color: #3a1a6f;
+ */
+/* } */
+
+.closer {
+    padding: 12px;
 }
 
 .side-text :hover {
-    background-color: #1a83ff;
+    background-color: #a9805c;
+    border-radius: 5px;
+    padding: 5px 5px 0px 5px;
 }
 
 .side-menu-items {
     width: 100%;
 }
 
-.sidebar-toggle {
+/* .sidebar-toggle {
     background-color: #060b26;
     width: 100%;
     height: 80px;
     display: flex;
     justify-content: start;
     align-items: center;
-}
+} */
 
 span {
     margin-left: 16px;
