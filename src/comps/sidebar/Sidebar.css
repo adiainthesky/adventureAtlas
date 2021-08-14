@@ -13,6 +13,11 @@
     font-size: 45px;
 }
 
+.info-click {
+    /* to bring to the front */
+    z-index: 99;
+}
+
 /* this isnt really used
 .sidebar {
     background-color: #a51d73;
@@ -40,7 +45,7 @@
     position: fixed;
     top: 0;
     /* this is what moves it so far to the left that its hidden */
-    /* left: -100%; */
+    left: -100%;
     transition: 850ms;
 }
 
@@ -100,39 +105,3 @@ span {
     margin-left: 16px;
 }
 
-.modalBackground {
-    /* means its hidden  */
-    opacity: 0;
-    /* means even if its hidden, you cant accidentally interact with it */
-    pointer-events: none;
-    transition: opacity 0.4s ease-in-out;
-    /* for some reason this stopped the button (and maybe all of modal?) from appearing at the bottom of the page */
-    position: absolute;
-    /* left: 0;
-    right: 0; 
-    bottom: 0;
-    top: 0; 
-    width: 100%; 
-    height: 100%;  */
-    background-color: grey;
-    display: flex;
-
-}
-
-.modalShowing-true {
-    opacity: 1;
-    pointer-events: showing;
-    color: tomato;
-}
-
-.modalInner {
-    width: 900px;
-    /* provides extra padding on right for when we reduce screen size */
-    max-width: calc(100% - 60px);
-    /* because we have .modalBackground display set to 'flex', this will center the imagine */
-    margin: auto;
-}
-
-.modalImage img {
-    width: 100%;
-}

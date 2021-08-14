@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './InfoModal.css'
 
 const InfoModal = () => {
     const [modalState, setModalState] = useState(false);
