@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useFirestore from '../../hooks/useFirestore';
 import { motion } from 'framer-motion';
-
+import "./TripDisplay.css" 
 
 
 const TripDisplay = ({trips, id}) => {
@@ -12,12 +12,13 @@ const TripDisplay = ({trips, id}) => {
     return (
         <div className="display">
             {/* <div className="tripPhoto"> */}
-            <motion.img width={300} src={selectedDoc["0"]["photo"]} alt="uploaded pic"
+            {/* <motion.img width={300} src={selectedDoc["0"]["photo"]} alt="uploaded pic"
             // animation effect to delay and fade-in when a new photo is uploaded:
-            initial={{ opacity: 0 }}
+            initial={{ opacity: .0001 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
-            />
+            /> */}
+            <img className="img-display" width={300} src={selectedDoc["0"]["photo"]} alt="uploaded pic"/>
             <h2> Trip Name: </h2>
                 { selectedDoc["0"]["tripName"] }
             <h2> Trip Location: </h2>

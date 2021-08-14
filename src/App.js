@@ -5,7 +5,8 @@ import TripForm from "./comps/oldTripUpload/TripForm";
 import SignUp from "./comps/signUp/SignUp";
 import TripUpload from "./comps/tripUpload/TripUpload";
 import TripDisplay from "./comps/tripDisplay/OLDTripDisplay";
-
+import Sidebar from "./comps/sidebar/Sidebar";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 
 export default function App() {
@@ -16,6 +17,9 @@ export default function App() {
       {/* <SignUp /> */}
       {/* <TripUpload /> */}
       {/* <TripDisplay /> */}
+
+        {/* <Sidebar /> */}
+
     </div>
     
   );  
