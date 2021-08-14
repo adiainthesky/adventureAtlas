@@ -31,9 +31,9 @@ const Map = () => {
     }, [trips])    
 
     return (
-        // <div>
-        //     <Sidebar /> 
-        // {/* set zoomControl to false since i am importing a new one that i can adjust */}
+        <div>
+            {/* <Sidebar />  */}
+             {/* set zoomControl to false since i am importing a new one that i can adjust */}
             <MapContainer center={[20.555, -25]} zoom={2.5} zoomControl={false}>
                 <ZoomControl position="bottomright" zoomInText="🔎" zoomOutText="🌎"></ZoomControl>
                 <MapClickHandler onClick={ (event)=> {

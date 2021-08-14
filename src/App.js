@@ -13,12 +13,12 @@ export default function App() {
 
   return (
     <div>
-      {/* <Map /> */}
+      <Sidebar />
+      <Map />
       {/* <SignUp /> */}
       {/* <TripUpload /> */}
       {/* <TripDisplay /> */}
 
-        <Sidebar />
 
     </div>
     

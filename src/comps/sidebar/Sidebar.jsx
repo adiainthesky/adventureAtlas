@@ -22,13 +22,11 @@ const Sidebar = () => {
 
     return (
         // this allows me to customize all icons at once
-        <div>
-        <IconContext.Provider value={{ color: 'purple' }}>
-            <div className="info-click">
-                <div className='menu-bars'>
-                    {/* <FaIcons.FaBars onClick={showSidebar} /> */}
-                    <div className='info-icon' onClick={showSidebar}>info</div>
-                </div>
+        <div className='info-click'>    
+        <IconContext.Provider  value={{ color: '#8cac5d'}}>
+            <div className='menu-bars'>
+                {/* <FaIcons.FaBars onClick={showSidebar} /> */}
+                <div className='info-icon' onClick={showSidebar}>info</div>
             </div>
             {/* if the sidebar is selected, the classsName will be 'nav-menu active' (meaning its showing),
             or 'nav-menu', which means its hidden */}
