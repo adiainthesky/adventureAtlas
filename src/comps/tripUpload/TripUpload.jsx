@@ -4,11 +4,12 @@ import "./tripUpload.css"
 import { projectStorage, db } from '../../firebase/config.js'
 
 const uploadTripToDB = ( lat, lng, tripData, setLoader ) => {
-    const { tripName, location, description, url } = tripData
+    const { tripName, location, tripType, description, url } = tripData
     db.collection('trips')
     .add({
         tripName: tripName,
         location: location,
+        tripType: tripType,
         description: description,
         photo: url,
         lat: lat,
@@ -31,6 +32,7 @@ const TripUpload = ({lat, lng}) => {
     const [description, setDescription] = useState("");
     const [photo, setPhoto] = useState(null);
     const [error, setError] = useState(null);
+    const [tripType, setTripType] = useState(["Cultural"]);
 
     const [loader, setLoader] = useState(false);
     const [progress, setProgress] = useState(0);
@@ -41,8 +43,12 @@ const TripUpload = ({lat, lng}) => {
         setTripName("");
         setLocation("");
         setDescription("");
+        setTripType("cultural");
         setPhoto(null);
     }
+
+
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -62,12 +68,9 @@ const TripUpload = ({lat, lng}) => {
             // collectionRef.add({ url, createdAt });
             // setUrl(url);
 
-            uploadTripToDB(lat, lng, { tripName, location, description, url }, setLoader)
+            uploadTripToDB(lat, lng, { tripName, location, tripType, description, url }, setLoader)
             resetStateAfterUpload()
-
         })
-
-
     };
 
     const changeHandler = (e) => {
@@ -98,6 +101,18 @@ const TripUpload = ({lat, lng}) => {
                 onChange={(e) => setLocation(e.target.value)} 
                 />
 
+            <label>Type of Trip</label>
+            <select 
+                value={tripType} 
+                // e.target.value grabs associated number, i wanted text but for some reason firebase didnt like e.target.text
+                onChange={(e) => setTripType(e.target.value)} 
+                className="drop-down"
+            >
+                <option selected value="1">Cultural</option>
+                <option value="2">Natural</option>
+            </select>
+
+            
             <label>Description</label>
             <textarea 
                 placeholder="Description"

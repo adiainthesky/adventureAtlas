@@ -12,14 +12,26 @@ import TripDisplay from '../tripDisplay/TripDisplay';
 import Sidebar from "../sidebar/Sidebar";
 import useFirestore from '../../hooks/useFirestore';
 import useData from '../../hooks/useData';
+import truck from '../../thumbtacks/tree-truck.svg';
+import sloth from '../../thumbtacks/sloth.svg';
 
 export const thumbtack = new Icon({
     iconUrl: "/simple-luggage.svg",
+    // iconUrl: require("/simple-luggage.svg"),
     iconSize: [27, 27]
 });
 
 export const altThumbtack = new Icon({
-    iconUrl: "/tree-truck.svg",
+    // iconUrl: "/tree-truck.svg",
+    // iconUrl: require("../thumbtacks/tree-truck.svg"),
+    iconUrl: truck,
+    iconSize: [27, 27]
+});
+
+export const thirdThumbtack = new Icon({
+    // iconUrl: "/sloth.svg",
+    // iconUrl: require("../thumbtacks/sloth.svg"),
+    iconUrl: sloth,
     iconSize: [27, 27]
 });
 
@@ -30,6 +42,17 @@ export const altThumbtack = new Icon({
 //         default: return 'thumbtack';
 //     }
 // }
+
+// const icons = {
+//     Morocco: 'altThumbtack',
+//     Bolivia: 'thumbtack',
+// };
+
+// const determineIcon = (location) => {
+//     if (icons[location]) return icons[location]
+//         return 'thirdThumbtack';
+//     }
+
 
 const Map = () => {
     // look for obj "docs " in useFirestore adn allows us to rename it as var "trips"
