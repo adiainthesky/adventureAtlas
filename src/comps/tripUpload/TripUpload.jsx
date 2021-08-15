@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-
 import "./tripUpload.css"
 import { projectStorage, db } from '../../firebase/config.js'
 
@@ -46,9 +45,6 @@ const TripUpload = ({lat, lng}) => {
         setTripType("cultural");
         setPhoto(null);
     }
-
-
-
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -121,7 +117,7 @@ const TripUpload = ({lat, lng}) => {
                 ></textarea>
 
             <label>Photo</label>
-            <form>
+            <form className="photo-upload-button">
                 <input 
                     type="file"
                     placeholder="Photo"

@@ -4,17 +4,19 @@
     box-sizing: border-box;
 } */
 
-
+/* 
 body {
     background-color: rgb(141, 125, 184);
-}
+} */
 
-body,
+/* body,
 input,
 textarea,
 button {
     font-family: papyrus, Luminari, Marker Felt;
-}
+} */
+
+
 
 /* .app {
     width: 400px;
@@ -22,12 +24,14 @@ button {
     height: 100vh;
 } */
 
-/* .form {
-    height: 100vh;
+form {
+    /* margin-top: 2em; */
+    margin-bottom: 2em;
+    /* height: auto; */
     display: flex;
     flex-direction: column;
     justify-content: center;
-} */
+}
 
 /* .form > h1 {
     margin-bottom: 30px;
@@ -35,16 +39,16 @@ button {
 
 .form > input,
 textarea {
-    padding: 10px;
+    padding: 5px;
     border-radius: 3px;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.137);
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     border: 1px solid rgb(189, 188, 188);
     /* input block color */
-    background: rgb(240, 229, 229);
+    background: #e0dec7;
     /* inside input block */
     font-size: 16px;
-    /* color: rgb(0, 0, 32); */
+    color: rgb(63, 16, 97);
     /* outline: none; */
 }
 
@@ -63,14 +67,15 @@ textarea:focus {
 }
 
 .form > label {
-    padding-bottom: 5px;
+    padding-bottom: 1px;
     color: rgb(63, 16, 97);
     font-size: 18px;
     font-weight: bold;
 }
 
 .form > button {
-    padding: 5px;
+    padding-top: 3px;
+    margin-top: 5px;
     padding-left: 15px;
     padding-right: 15px;
     border: none;
@@ -82,7 +87,6 @@ textarea:focus {
     color: #fff;
     cursor: pointer;
     transition: 0.2s ease-in-out;
-    margin-top: 20px;
 }
 
 /* .form > button:hover {
@@ -94,12 +98,31 @@ textarea:focus {
 } */
 
 
-.pop-up-bubble {
-    border: 5px solid rgb(63, 16, 97);
-    min-height: 500px;
-    min-width: 300px;
+
+.drop-down {
+    margin: .5em;
 }
 
-.pop-up-img {
-    max-height: 300px;
-  }
+.photo-upload-button {
+    padding-left: 29px;
+    margin: 0px;
+    /* font-weight: 500; */
+    width: 10em;
+    font-size: 16px;
+    border-radius: 15px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    /* ???Why wont thse change?? */
+    font-family: papyrus, Luminari, Marker Felt;
+    border-radius: 15px;
+    color: #fff;
+    /* background-color: palevioletred; */
+}
+
+/* ????why wont this work? */
+.photo-upload-button :hover {
+    background-color: #d87caf;
+    border-radius: 5px;
+    width: auto;
+}

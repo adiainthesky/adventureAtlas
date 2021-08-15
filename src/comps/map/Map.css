@@ -7,14 +7,21 @@
     text-align: center;
   }
   
-  
   .pop-up-bubble {
-    border: 5px solid rgb(125, 5, 5);
-  }
+    border: 5px solid rgb(63, 16, 97);
+    min-height: 500px;
+    min-width: 300px;
+    /* padding-right: 30px; */
+    border-radius: 2em;
+    background-color: #cdcea2;
+    font-family: papyrus, Luminari, Marker Felt;
+    color: rgb(63, 16, 97);
+}
+
+.pop-up-img {
+    max-height: 30px;
+}
   
-  .pop-up-img {
-    max-height: 300px;
-  }
   
   .App-header {
     background-color: #282c34;
