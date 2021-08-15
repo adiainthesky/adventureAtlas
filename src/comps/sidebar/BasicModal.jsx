@@ -6,7 +6,7 @@ const BasicModal = () => {
     const toggleModalState = () => setModalState(!modalState)
 
     return (
-        <div>
+        <div className='modalComponent'>
             <div className={`modalBackground modalShowing-${modalState}`}>
                 <div className="modalInner">
                     <h2>Basicrmation about the site</h2>

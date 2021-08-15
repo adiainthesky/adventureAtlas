@@ -13,7 +13,7 @@ import Sidebar from "../sidebar/Sidebar";
 import useFirestore from '../../hooks/useFirestore';
 import useData from '../../hooks/useData';
 import truck from '../../thumbtacks/tree-truck.svg';
-import sloth from '../../thumbtacks/sloth.svg';
+import cup from '../../thumbtacks/tea.svg';
 import leaf from '../../thumbtacks/leaf.svg';
 
 export const thumbtack = new Icon({
@@ -25,7 +25,7 @@ export const thumbtack = new Icon({
 export const altThumbtack = new Icon({
     // iconUrl: "/tree-truck.svg",
     // iconUrl: require("../thumbtacks/tree-truck.svg"),
-    iconUrl: truck,
+    iconUrl: cup,
     iconSize: [27, 27]
 });
 

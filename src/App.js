@@ -18,9 +18,9 @@ export default function App() {
     <div>
       {/* <Sidebar /> */}
       {/* <InfoModal /> */}
-      <BasicModal />
-      {/* <SideAndModal /> */}
-      {/* <Map /> */}
+      {/* <BasicModal /> */}
+      <SideAndModal />
+      <Map />
       {/* <SignUp /> */}
       {/* <TripUpload /> */}
       {/* <TripDisplay /> */}

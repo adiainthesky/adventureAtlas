@@ -9,7 +9,8 @@ const SideAndModal = () => {
 
     return (
         <div>
-            {modalState ? <BasicModal /> : ""}
+            {/* {modalState ? <BasicModal /> : ""} */}
+            <BasicModal />
             <Sidebar onClick={toggleModalState}/>
         </div>
     )
