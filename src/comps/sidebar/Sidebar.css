@@ -6,7 +6,7 @@
     /* color: teal; */
 }
 
-.info-click {
+.info-area {
     /* The element is positioned relative to its first positioned (not static) ancestor element	 */
     position: absolute;
     /* stack-level.  higher number, further to the front.  I think 'auto' is all the way in the back */
@@ -18,7 +18,7 @@
     padding-top: 35px;
     padding-left: 40px;
     color: #dfdac4;
-    text-shadow: 1px 1px 2px black, 0 0 25px darkgreen, 0 0 5px black;
+    text-shadow: 1px 1px 2px black, 0 0 25px #acbd86, 0 0 5px black;
     font-size: 45px;
     /* border: 1px solid purple; */
 }

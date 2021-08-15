@@ -18,6 +18,19 @@ export const thumbtack = new Icon({
     iconSize: [27, 27]
 });
 
+export const altThumbtack = new Icon({
+    iconUrl: "/tree-truck.svg",
+    iconSize: [27, 27]
+});
+
+// export const determineIcon = (location) => {
+//     switch (location) {
+//         case 'Morocco': return 'altThumbtack';
+//         case 'Boliva': return 'thumbtack';
+//         default: return 'thumbtack';
+//     }
+// }
+
 const Map = () => {
     // look for obj "docs " in useFirestore adn allows us to rename it as var "trips"
     const { docs: trips } = useFirestore('trips');
@@ -61,7 +74,9 @@ const Map = () => {
                     />
 
                 {locations && locations.map(location => ( 
-                    <Marker key={location.id} position={location} icon={thumbtack}>
+                    <Marker key={location.id} position={location} icon={ location.location==="Morocco" ? thumbtack : altThumbtack}>
+                    {/* <Marker key={location.id} position={location} icon={determineIcon(location.location)}> */}
+                    {/* <Marker key={location.id} position={location} icon={ (location.location==="Morocco" ?? thumbtack) || (location.location==="Bolivia" ?? altThumbtack) || altThumbtack}> */}
                         <Popup>            
                             <div className="pop-up-bubble">
                                 <TripDisplay trips={trips} id={location.id}/>
@@ -82,7 +97,7 @@ const Map = () => {
                     </Marker>
                 ))}
             </MapContainer>
-        // </div>
+        </div>
     );  
 }
 
