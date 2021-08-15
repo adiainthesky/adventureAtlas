@@ -1,86 +1,84 @@
-import React from 'react';
-import validate from './validateInfo';
-import useTripForm from './useTripForm';
-import '../Form.css';
+import React from 'react'
 
-const Signup = ({ submitForm }) => {
-    const { handleChange, handleSubmit, values, errors } = useTripForm(
-        submitForm,
-        validate
-    );
+const SignUp = () => {
+
+    const [user, setUser] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [emailError, setEmailError] = useState("");
+    const [passwordError, setPasswordError] = useState("");
+    const [hasAccount, setHasAccount] = useState(false);
+
+    const clearInputs = () => {
+        setEmail("");
+        setPassword("");
+    } 
+
+    const clearErrors = () => {
+        setEmailError("");
+        setPasswordError("");
+    } 
+
+    const handleLogin = () => {
+        clearErrors();
+        fire
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+        .catch(err => {
+            switch(err){
+                case "auth/invalid-email":
+                case "auth/user-disabled":
+                case "auth/user-not-found":
+                    setEmailError(err.message);
+                    break;
+                case "auth/wrong-password":
+                    setPasswordError(err.message);
+                    break;
+            }
+        });
+    };
+
+    const handleSignup = () => {
+        clearErrors();
+        fire
+        .auth()
+        .createUserWithEmailAndPassword(email, password)
+        .catch(err => {
+            switch(err.code){
+                case "auth/email-already-in-use":
+                case "auth/invalid-email":
+                    setEmailError(err.message);
+                    break;
+                case "auth/weak-password":
+                    setPasswordError(err.message);
+                    break;
+            }
+        });
+    };
+
+    const handleLogot = () => {
+        fire.auth().signOut();
+    };
+
+    const authListener = () => {
+        fire.auth().onAuthStateChanged(user => {
+            if(user){
+                clearInputs();
+                setUser(user);
+            }   
+            else {
+                setUser("");
+            }
+        });
+    };
+
+    useEffect(()=> {
+        authListener();
+    }, []); 
 
     return (
-        <div className='form-content-right'>
-        <form onSubmit={handleSubmit} className='form' noValidate>
-            <h1>
-            Welcome to GeoPics. Lets start by creating an account.
-            </h1>
-            <div className='form-inputs'>
-            <label className='form-label'>Username</label>
-            <input
-                className='form-input'
-                type='text'
-                name='username'
-                // when you click on lable this will highlight corresponding input area:
-                id='username'
-                placeholder='Enter your username'
-                value={values.username}
-                onChange={handleChange}
-            />
-            {errors.username && <p>{errors.username}</p>}
-            </div>
-            <div className='form-inputs'>
-            <label className='form-label'>Email</label>
-            <input
-                className='form-input'
-                type='email'
-                name='email'
-                // when you click on lable this will highlight corresponding input area:
-                id='email'
-                placeholder='Enter your email'
-                value={values.email}
-                onChange={handleChange}
-            />
-            {errors.email && <p>{errors.email}</p>}
-            </div>
-            <div className='form-inputs'>
-            <label className='form-label'>Password</label>
-            <input
-                className='form-input'
-                // this type hides chars as *s
-                type='password'
-                name='password'
-                // when you click on lable this will highlight corresponding input area:
-                id='password'
-                placeholder='Enter your password'
-                value={values.password}
-                onChange={handleChange}
-            />
-            {errors.password && <p>{errors.password}</p>}
-            </div>
-            <div className='form-inputs'>
-            <label className='form-label'>Confirm Password</label>
-            <input
-                className='form-input'
-                type='password'
-                name='password2'
-                // when you click on lable this will highlight corresponding input area:
-                id='password2'
-                placeholder='Confirm your password'
-                value={values.password2}
-                onChange={handleChange}
-            />
-            {errors.password2 && <p>{errors.password2}</p>}
-            </div>
-            <button className='form-input-btn' type='submit'>
-            Sign up
-            </button>
-            <span className='form-input-login'>
-            Already have an account? Login <a href='#'>here</a>
-            </span>
-        </form>
-        </div>
-    );
-};
 
-export default Signup;
+    )
+}
+
+export default SignUp
