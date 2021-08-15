@@ -97,7 +97,7 @@ const Map = () => {
                     />
 
                 {locations && locations.map(location => ( 
-                    <Marker key={location.id} position={location} icon={ location.location==="Morocco" ? thumbtack : altThumbtack}>
+                    <Marker key={location.id} position={location} icon={ location.tripType==="2" ? thumbtack : altThumbtack}>
                     {/* <Marker key={location.id} position={location} icon={determineIcon(location.location)}> */}
                     {/* <Marker key={location.id} position={location} icon={ (location.location==="Morocco" ?? thumbtack) || (location.location==="Bolivia" ?? altThumbtack) || altThumbtack}> */}
                         <Popup>            
