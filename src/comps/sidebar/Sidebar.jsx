@@ -44,7 +44,7 @@ const Sidebar = () => {
                                 </li>
                             )
                         })}
-                    <InfoModal />
+                    {/* <InfoModal /> */}
                     </ul>
                 </nav>
             </IconContext.Provider>

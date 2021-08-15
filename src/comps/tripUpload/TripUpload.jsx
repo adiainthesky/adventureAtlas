@@ -107,7 +107,6 @@ const TripUpload = ({lat, lng}) => {
                 <option selected value="1">General/</option>
                 <option value="2">Culture</option>
                 <option value="3">Nature</option>
-                <option value="4">Food</option>
             </select>
 
             

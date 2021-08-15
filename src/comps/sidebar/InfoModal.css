@@ -24,7 +24,7 @@
 }
 
 .modalInner {
-    width: 900px;
+    width: 200px;
     /* provides extra padding on right for when we reduce screen size */
     max-width: calc(100% - 60px);
     /* because we have .modalBackground display set to 'flex', this will center the imagine */
@@ -33,4 +33,10 @@
 
 .modalImage img {
     width: 100%;
+}
+
+.button {
+    /* position: absolute; */
+    position: fixed;
+    margin-bottom: 500px;
 }

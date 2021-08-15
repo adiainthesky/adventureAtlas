@@ -6,7 +6,9 @@ import SignUp from "./comps/signUp/SignUp";
 import TripUpload from "./comps/tripUpload/TripUpload";
 import TripDisplay from "./comps/tripDisplay/OLDTripDisplay";
 import Sidebar from "./comps/sidebar/Sidebar";
+import SideAndModal from "./comps/sidebar/SideAndModal";
 import InfoModal from "./comps/sidebar/InfoModal";
+import BasicModal from "./comps/sidebar/BasicModal";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 
@@ -14,14 +16,14 @@ export default function App() {
 
   return (
     <div>
-      <Sidebar />
-      <InfoModal />
-      <Map />
+      {/* <Sidebar /> */}
+      {/* <InfoModal /> */}
+      <BasicModal />
+      {/* <SideAndModal /> */}
+      {/* <Map /> */}
       {/* <SignUp /> */}
       {/* <TripUpload /> */}
       {/* <TripDisplay /> */}
-
-
     </div>
     
   );  
