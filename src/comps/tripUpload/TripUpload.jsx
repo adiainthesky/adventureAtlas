@@ -42,7 +42,7 @@ const TripUpload = ({lat, lng}) => {
         setTripName("");
         setLocation("");
         setDescription("");
-        setTripType("cultural");
+        setTripType("1");
         setPhoto(null);
     }
 
@@ -97,15 +97,17 @@ const TripUpload = ({lat, lng}) => {
                 onChange={(e) => setLocation(e.target.value)} 
                 />
 
-            <label>Type of Trip</label>
+            <label>Type of Experience</label>
             <select 
                 value={tripType} 
                 // e.target.value grabs associated number, i wanted text but for some reason firebase didnt like e.target.text
                 onChange={(e) => setTripType(e.target.value)} 
                 className="drop-down"
             >
-                <option selected value="1">Cultural</option>
-                <option value="2">Natural</option>
+                <option selected value="1">General/</option>
+                <option value="2">Culture</option>
+                <option value="3">Nature</option>
+                <option value="4">Food</option>
             </select>
 
             

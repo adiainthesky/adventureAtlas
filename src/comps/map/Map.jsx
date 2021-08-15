@@ -14,6 +14,7 @@ import useFirestore from '../../hooks/useFirestore';
 import useData from '../../hooks/useData';
 import truck from '../../thumbtacks/tree-truck.svg';
 import sloth from '../../thumbtacks/sloth.svg';
+import leaf from '../../thumbtacks/leaf.svg';
 
 export const thumbtack = new Icon({
     iconUrl: "/simple-luggage.svg",
@@ -31,17 +32,17 @@ export const altThumbtack = new Icon({
 export const thirdThumbtack = new Icon({
     // iconUrl: "/sloth.svg",
     // iconUrl: require("../thumbtacks/sloth.svg"),
-    iconUrl: sloth,
+    iconUrl: leaf,
     iconSize: [27, 27]
 });
 
-// export const determineIcon = (location) => {
-//     switch (location) {
-//         case 'Morocco': return 'altThumbtack';
-//         case 'Boliva': return 'thumbtack';
-//         default: return 'thumbtack';
-//     }
-// }
+export const determineIcon = (location) => {
+    switch (location) {
+        case 'Morocco': return altThumbtack;
+        case 'Brazil': return thumbtack;
+        default: return thirdThumbtack;
+    }
+}
 
 // const icons = {
 //     Morocco: 'altThumbtack',
@@ -97,8 +98,8 @@ const Map = () => {
                     />
 
                 {locations && locations.map(location => ( 
-                    <Marker key={location.id} position={location} icon={ location.tripType==="2" ? thumbtack : altThumbtack}>
-                    {/* <Marker key={location.id} position={location} icon={determineIcon(location.location)}> */}
+                    // <Marker key={location.id} position={location} icon={ location.tripType==="2" ? thumbtack : altThumbtack}>
+                    <Marker key={location.id} position={location} icon={determineIcon(location.location)}>
                     {/* <Marker key={location.id} position={location} icon={ (location.location==="Morocco" ?? thumbtack) || (location.location==="Bolivia" ?? altThumbtack) || altThumbtack}> */}
                         <Popup>            
                             <div className="pop-up-bubble">
