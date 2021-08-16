@@ -1,38 +1,52 @@
-import React, { useEffect, useState } from 'react';
-import useFirestore from '../../hooks/useFirestore';
-import { motion } from 'framer-motion';
-import "./TripDisplay.css" 
+import React, { useEffect, useState } from "react";
+import useFirestore from "../../hooks/useFirestore";
+import { db } from "../../firebase/config.js";
+import { motion } from "framer-motion";
+import "./TripDisplay.css";
 
-
-const TripDisplay = ({trips, id}) => {
-    const docs = trips
+const TripDisplay = ({ trips, id, deleteTrip }) => {
+    const docs = trips;
     // const { docs } = useFirestore('trips');
-    const selectedDoc = docs.filter(doc => doc["id"] === id) 
+    const selectedDoc = docs.filter((doc) => doc["id"] === id);
 
-    return (
-        <div className="display">
-            {/* <div className="tripPhoto"> */}
-            {/* <motion.img width={300} src={selectedDoc["0"]["photo"]} alt="uploaded pic"
+    // #nfn
+    // const onDelete = (trip) => {
+    //     db.collection('trips').doc(trip.id).delete()
+    // }
+
+    if (selectedDoc["0"]) {
+        return (
+            <div className="display">
+                {/* <div className="tripPhoto"> */}
+                {/* <motion.img width={300} src={selectedDoc["0"]["photo"]} alt="uploaded pic"
             // animation effect to delay and fade-in when a new photo is uploaded:
             initial={{ opacity: .0001 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
             /> */}
-            <img className="img-display" width={300} src={selectedDoc["0"]["photo"]} alt="uploaded pic"/>
-            {/* <h2> Trip Name: </h2>
+                <img
+                    className="img-display"
+                    width={300}
+                    src={selectedDoc["0"]["photo"]}
+                    alt="uploaded pic"
+                />
+                {/* <h2> Trip Name: </h2>
                 { selectedDoc["0"]["tripName"] } */}
-            <h2> Location: </h2>
-                { selectedDoc["0"]["location"] }
-            <h2> Type of Experience: </h2>
-                { selectedDoc["0"]["tripType"] }    
-            <h2> Share a bit about your moment: </h2>
-                { selectedDoc["0"]["description"] }
-        </div>
-    )
-}
+                <h2> Location: </h2>
+                {selectedDoc["0"]["location"]}
+                <h2> Type of Experience: </h2>
+                {selectedDoc["0"]["tripType"]}
+                <h2> Share a bit about your moment: </h2>
+                {selectedDoc["0"]["description"]}
+                <button onClick={() => deleteTrip(id)}>Delete</button>
+            </div>
+        );
+    } else {
+        return <div></div>;
+    }
+};
 
 export default TripDisplay;
-
 
 // THIS WORKS!!!!
 // import React, { useEffect, useState } from 'react';
@@ -42,7 +56,7 @@ export default TripDisplay;
 // const TripDisplay = ({trips, id}) => {
 //     const docs = trips
 //     // const { docs } = useFirestore('trips');
-//     const selectedDoc = docs.filter(doc => doc["id"] === id) 
+//     const selectedDoc = docs.filter(doc => doc["id"] === id)
 
 //     return (
 //         <div className="display">

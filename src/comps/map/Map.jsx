@@ -56,7 +56,7 @@ export const determineIcon = (location) => {
 
 const Map = ({userID}) => {
     // look for obj "docs " in useFirestore adn allows us to rename it as var "trips"
-    const { docs: trips } = useFirestore('trips');
+    const { db, docs: trips } = useFirestore('trips');
     const [lat_lng, setLat_Lng] = useState(null);
     const [uploadIsActive, setUploadIsActive] = useState(false);
     const [locations, setLocations] = useState(trips);
@@ -65,6 +65,20 @@ const Map = ({userID}) => {
     useEffect(() => {
         setLocations([...locations, ...trips])
     }, [trips])    
+
+    const deleteTrip = (trip) => {
+        // db.collection("trips").doc(trip.id).delete()
+        console.log(trip)
+        const tester = db.collection("trips").doc(trip)
+        console.log(tester)
+        tester.delete()
+        .then(() => {
+            alert('Your trip has been deleted!');
+        })
+        .catch(error => {
+            alert(error.message);
+        });
+    }
 
     return (
         <div>
@@ -102,7 +116,7 @@ const Map = ({userID}) => {
                     {/* <Marker key={location.id} position={location} icon={ (location.location==="Morocco" ?? thumbtack) || (location.location==="Bolivia" ?? altThumbtack) || altThumbtack}> */}
                         <Popup>            
                             <div className="pop-up-bubble">
-                                <TripDisplay trips={trips} id={location.id}/>
+                                <TripDisplay trips={trips} id={location.id} deleteTrip={deleteTrip}/>
                                 {/* <TripDisplay photo={location.photo}/> */}
 
                                 {/* {location.trip_name && (
@@ -122,8 +136,6 @@ const Map = ({userID}) => {
             </MapContainer>
         </div>
     );  
-}
+};
 
-export default Map;
-
-
+export default Map
