@@ -17,7 +17,7 @@ export default function App() {
   return (
     <div>
       {/* <SignUp /> */}
-      {/* <SideAndModal /> */}
+      <SideAndModal />
       <Map />
       {/* <Sidebar /> */}
       {/* <InfoModal /> */}

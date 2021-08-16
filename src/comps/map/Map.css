@@ -15,7 +15,7 @@
     padding: 1em;
     border: 5px solid rgb(63, 16, 97);
     min-height: 500px;
-    min-width: 300px;
+    min-width: 325px;
     /* padding-right: 30px; */
     border-radius: 1em;
     background-color: #cdcea2;
@@ -26,8 +26,8 @@
 .pop-up-img {
     max-height: 30px;
 }
-  
-  
+
+ 
   .App-header {
     background-color: #282c34;
     min-height: 100vh;

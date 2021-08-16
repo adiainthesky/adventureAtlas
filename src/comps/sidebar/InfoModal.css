@@ -1,7 +1,7 @@
 .modalBackground {
     /* means its hidden  */
     opacity: 0;
-    /* means even if its hidden, you cant accidentally interact with it */
+    /* means even if its hidden, you cant accidentally interact with it BUT this prevents sign-up typing*/
     pointer-events: none;
     transition: opacity 0.4s ease-in-out;
     /* for some reason this stopped the button (and maybe all of modal?) from appearing at the bottom of the page */
