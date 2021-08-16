@@ -12,28 +12,27 @@ import TripDisplay from '../tripDisplay/TripDisplay';
 import Sidebar from "../sidebar/Sidebar";
 import useFirestore from '../../hooks/useFirestore';
 import useData from '../../hooks/useData';
-import truck from '../../thumbtacks/tree-truck.svg';
-import cup from '../../thumbtacks/tea.svg';
-import leaf from '../../thumbtacks/leaf.svg';
+import plant from '../../thumbtacks/leaf.svg';
+import mug from '../../thumbtacks/mug.svg';
 
 export const thumbtack = new Icon({
     iconUrl: "/simple-luggage.svg",
     // iconUrl: require("/simple-luggage.svg"),
-    iconSize: [27, 27]
+    iconSize: [20, 20]
 });
 
 export const altThumbtack = new Icon({
     // iconUrl: "/tree-truck.svg",
     // iconUrl: require("../thumbtacks/tree-truck.svg"),
-    iconUrl: cup,
+    iconUrl: plant,
     iconSize: [27, 27]
 });
 
 export const thirdThumbtack = new Icon({
     // iconUrl: "/sloth.svg",
     // iconUrl: require("../thumbtacks/sloth.svg"),
-    iconUrl: leaf,
-    iconSize: [27, 27]
+    iconUrl: mug,
+    iconSize: [32, 32]
 });
 
 export const determineIcon = (location) => {

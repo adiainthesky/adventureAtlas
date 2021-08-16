@@ -1,18 +1,23 @@
 .leaflet-container {
     width: 100%;
     height: 100vh;
-  }
+}
   
-  .App {
-    text-align: center;
-  }
-  
-  .pop-up-bubble {
+.leaflet-popup-content {
+  margin: 0px;
+}
+
+.App {
+  text-align: center;
+}
+
+.pop-up-bubble {
+    padding: 1em;
     border: 5px solid rgb(63, 16, 97);
     min-height: 500px;
     min-width: 300px;
     /* padding-right: 30px; */
-    border-radius: 2em;
+    border-radius: 1em;
     background-color: #cdcea2;
     font-family: papyrus, Luminari, Marker Felt;
     color: rgb(63, 16, 97);

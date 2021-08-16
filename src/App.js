@@ -16,12 +16,12 @@ export default function App() {
 
   return (
     <div>
+      {/* <SignUp /> */}
+      {/* <SideAndModal /> */}
+      <Map />
       {/* <Sidebar /> */}
       {/* <InfoModal /> */}
       {/* <BasicModal /> */}
-      <SideAndModal />
-      <Map />
-      {/* <SignUp /> */}
       {/* <TripUpload /> */}
       {/* <TripDisplay /> */}
     </div>

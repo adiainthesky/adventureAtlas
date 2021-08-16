@@ -12,7 +12,7 @@ import { IconContext } from 'react-icons/lib';
 import InfoModal from './InfoModal';
 
 
-const Sidebar = () => {
+const Sidebar = ({activateModal}) => {
     const [sidebar, setSidebar] = useState(false);
     const showSidebar = () => setSidebar(!sidebar)
 
@@ -28,6 +28,7 @@ const Sidebar = () => {
                 or 'nav-menu', which means its hidden */}
                 <nav className={sidebar ? 'side-menu active' : 'side-menu'}>
                     <ul className='side-menu-items' onClick={showSidebar}>
+                    {/* <ul className='side-menu-items'> */}
                         <li className="closer">
                             <div className='menu-bars'>
                                 {/* got below icon from 'https://react-icons.github.io/' then imported above' */}
@@ -36,7 +37,7 @@ const Sidebar = () => {
                         </li>
                         {SidebarData.map((item, index) => {
                             return (
-                                <li key={index} className={item.className}>
+                                <li key={index} className={item.className} onClick={activateModal}>
                                     <div>
                                         {item.icon}
                                         <span>{item.title}</span>

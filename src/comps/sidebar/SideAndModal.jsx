@@ -11,7 +11,7 @@ const SideAndModal = () => {
         <div>
             {/* {modalState ? <BasicModal /> : ""} */}
             <BasicModal />
-            <Sidebar onClick={toggleModalState}/>
+            <Sidebar activateModal={toggleModalState}/>
         </div>
     )
 }

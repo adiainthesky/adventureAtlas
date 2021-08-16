@@ -33,6 +33,11 @@ form {
     justify-content: center;
 }
 
+.form {
+    overflow: hidden;
+    align-items: center;
+}
+
 /* .form > h1 {
     margin-bottom: 30px;
 } */
@@ -73,20 +78,18 @@ textarea:focus {
     font-weight: bold;
 }
 
-.form > button {
-    padding-top: 3px;
+.form > button.add-trip-button {
     margin-top: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
-    border: none;
-    /* ????Why doesnt this change it? */
     background-color: rgb(63, 16, 97);
-    /* font-weight: 500; */
     font-size: 20px;
     border-radius: 3px;
     color: #fff;
     cursor: pointer;
     transition: 0.2s ease-in-out;
+}
+
+.form > button.add-trip-button.loading {
+    background-color: grey;
 }
 
 /* .form > button:hover {

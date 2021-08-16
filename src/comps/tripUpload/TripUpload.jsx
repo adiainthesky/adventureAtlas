@@ -104,7 +104,7 @@ const TripUpload = ({lat, lng}) => {
                 onChange={(e) => setTripType(e.target.value)} 
                 className="drop-down"
             >
-                <option selected value="1">General/</option>
+                <option selected value="1">General</option>
                 <option value="2">Culture</option>
                 <option value="3">Nature</option>
             </select>
@@ -118,10 +118,10 @@ const TripUpload = ({lat, lng}) => {
                 ></textarea>
 
             <label>Photo</label>
-            <form className="photo-upload-button">
-                <input 
+            {/* <form className="photo-upload-button"> */}
+                <input className="photo-upload-button"
                     type="file"
-                    placeholder="Photo"
+                    // placeholder="Photo"
                     // value={photo}
                     onChange={changeHandler} 
                 />
@@ -131,11 +131,12 @@ const TripUpload = ({lat, lng}) => {
                 {/* this shows the name of the file if it uploaded */}
                 { photo && <div> { photo.name }</div> }
                 {/* { file && <ProgressBar file={file} setFile={setFile}/> } */}
-                </div>
-            </form>
+                </div> 
+            {/* </form> */}
             
             {/* if loading is true, button will change color */}
-            <button type="submit" style={{background : loader ? "#ccc" : " rgb(2,2,110" }}>
+            {/* <button type="submit" style={{background : loader ? "#ccc" : " green" }}> */}
+            <button type="submit" className={!loader ? "add-trip-button" : "add-trip-button loading"} >
                 Add trip!
             </button>
         </form>

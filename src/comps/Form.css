@@ -60,7 +60,7 @@
     background: linear-gradient(90deg, rgb(40, 40, 40) 0%, rgb(17, 17, 17) 100%);
 }
 
-.form {
+/* .form {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -71,7 +71,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
+} */
 
 .form h1 {
     font-size: 1rem;
