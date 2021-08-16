@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import "./tripUpload.css"
 import { projectStorage, db } from '../../firebase/config.js'
 
-const uploadTripToDB = ( lat, lng, tripData, setLoader ) => {
+const uploadTripToDB = ( userID, lat, lng, tripData, setLoader ) => {
     const { tripName, location, tripType, description, url } = tripData
     db.collection('trips')
     .add({
+        user_id: userID,
         tripName: tripName,
         location: location,
         tripType: tripType,
@@ -25,7 +26,7 @@ const uploadTripToDB = ( lat, lng, tripData, setLoader ) => {
     
 }
 
-const TripUpload = ({lat, lng}) => {
+const TripUpload = ({userID, lat, lng}) => {
     const [tripName, setTripName] = useState("");
     const [location, setLocation] = useState("");
     const [description, setDescription] = useState("");
@@ -64,7 +65,7 @@ const TripUpload = ({lat, lng}) => {
             // collectionRef.add({ url, createdAt });
             // setUrl(url);
 
-            uploadTripToDB(lat, lng, { tripName, location, tripType, description, url }, setLoader)
+            uploadTripToDB(userID, lat, lng, { tripName, location, tripType, description, url }, setLoader)
             resetStateAfterUpload()
         })
     };

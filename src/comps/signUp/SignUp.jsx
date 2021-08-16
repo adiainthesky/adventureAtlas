@@ -8,7 +8,7 @@ import Logout from './Logout';
 import './SignUp.css'
 
 
-const SignUp = () => {
+const SignUp = ({setID}) => {
     
     const users = db.collection('users')
     // const { docs: users } = useFirestore('users');
@@ -19,6 +19,8 @@ const SignUp = () => {
     const [passwordError, setPasswordError] = useState("");
     const [hasAccount, setHasAccount] = useState(false);
     
+    // const loadNewUserID = (uid) => setID(uid)
+
     const clearInputs = () => {
         setEmail("");
         setPassword("");
@@ -32,11 +34,12 @@ const SignUp = () => {
     const handleStoreUser = (user) => {
         console.log('**************', user)
         users.doc(user.user.uid).set({
-            email: user.user.email
+            user_id: user.user.uid
         })
         .catch((error) => {
             console.error("Error writing document: ", error);
         });
+        // loadNewUserID(user.user.uid)
     }
 
     const handleLogin = () => {
@@ -44,6 +47,8 @@ const SignUp = () => {
         fire
         .auth()
         .signInWithEmailAndPassword(email, password)
+        // this works for Singup but mabe not login
+        .then(user => {handleStoreUser(user)})
         .catch(err => {
             switch(err.code){
                 case "auth/invalid-email":
@@ -80,16 +85,21 @@ const SignUp = () => {
 
     const handleLogout = () => {
         fire.auth().signOut();
+        // loadNewUserID(null)
     };
 
     const authListener = () => {
-        fire.auth().onAuthStateChanged(user => {
-            if(user){
+        fire.auth().onAuthStateChanged((user) => {
+            if(user){   
                 clearInputs();
-                setUser(user);
+                setID(user.uid);
+                setUser(user.uid);
+                // setID(user.user.uid);
+                // setUser(user.user.uid);
             }   
             else {
-                setUser("");
+                setID(null);
+                setUser(null);
             }
         });
     };

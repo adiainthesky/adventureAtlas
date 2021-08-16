@@ -54,7 +54,7 @@ export const determineIcon = (location) => {
 //     }
 
 
-const Map = () => {
+const Map = ({userID}) => {
     // look for obj "docs " in useFirestore adn allows us to rename it as var "trips"
     const { docs: trips } = useFirestore('trips');
     const [lat_lng, setLat_Lng] = useState(null);
@@ -83,7 +83,7 @@ const Map = () => {
                     <Marker position={lat_lng}>
                         <Popup>   
                             <div className="pop-up-bubble"> 
-                                <TripUpload lat={lat_lng.lat} lng={lat_lng.lng} />
+                                <TripUpload userID={userID} lat={lat_lng.lat} lng={lat_lng.lng} />
                             </div>                    
                         </Popup>
                     </Marker>
