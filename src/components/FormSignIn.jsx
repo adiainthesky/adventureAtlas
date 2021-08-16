@@ -1,29 +1,29 @@
-import React, { useState } from 'react';
-// import './Form.css';
-import FormSignup from '../comps/signUp/SignUp';
-// import FormSuccess from '../../components/FormSuccess';
+// import React, { useState } from 'react';
+// // import './Form.css';
+// import FormSignup from '../comps/signUp/SignUp';
+// // import FormSuccess from '../../components/FormSuccess';
 
-const Form = () => {
-    const [isSubmitted, setIsSubmitted] = useState(false);
+// const Form = () => {
+//     const [isSubmitted, setIsSubmitted] = useState(false);
 
-    function submitForm() {
-        setIsSubmitted(true);
-    }
-    return (
-        <>
-        <div className='form-container'>
-            <span className='close-btn'>×</span>
-            <div className='form-content-left'>
-            <img className='form-img' src='img/img-2.svg' alt='spaceship' />
-            </div>
-            {!isSubmitted ? (
-            <FormSignup submitForm={submitForm} />
-            ) : (
-            // <FormSuccess />
-            )}
-        </div>
-        </>
-    );
-    };
+//     function submitForm() {
+//         setIsSubmitted(true);
+//     }
+//     return (
+//         <>
+//         <div className='form-container'>
+//             <span className='close-btn'>×</span>
+//             <div className='form-content-left'>
+//             <img className='form-img' src='img/img-2.svg' alt='spaceship' />
+//             </div>
+//             {!isSubmitted ? (
+//             <FormSignup submitForm={submitForm} />
+//             ) : (
+//             // <FormSuccess />
+//             )}
+//         </div>
+//         </>
+//     );
+//     };
 
-export default Form;
+// export default Form;

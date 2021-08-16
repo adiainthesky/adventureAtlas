@@ -19,11 +19,13 @@ const TripDisplay = ({trips, id}) => {
             transition={{ delay: 1 }}
             /> */}
             <img className="img-display" width={300} src={selectedDoc["0"]["photo"]} alt="uploaded pic"/>
-            <h2> Trip Name: </h2>
-                { selectedDoc["0"]["tripName"] }
-            <h2> Trip Location: </h2>
+            {/* <h2> Trip Name: </h2>
+                { selectedDoc["0"]["tripName"] } */}
+            <h2> Location: </h2>
                 { selectedDoc["0"]["location"] }
-            <h2> Trip Description: </h2>
+            <h2> Type of Experience: </h2>
+                { selectedDoc["0"]["tripType"] }    
+            <h2> Share a bit about your moment: </h2>
                 { selectedDoc["0"]["description"] }
         </div>
     )

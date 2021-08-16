@@ -1,4 +1,5 @@
-.modalComponent {
+
+.signInModalComponent {
     position: absolute;
     z-index: 1000;
     padding-left: 200px;
@@ -27,15 +28,12 @@
     color: tomato;
 }
 
-/* .modalInner {
-    position: fixed;
-    width: 300px;
-    height: 300px;
-    background: #dddac6;
+
+
+.signInModalInner {
+    /* width: 200px; */
+    /* provides extra padding on right for when we reduce screen size */
+    max-width: calc(100% - 60px);
+    /* because we have .modalBackground display set to 'flex', this will center the imagine */
     margin: auto;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 50px;
-} */
+}
