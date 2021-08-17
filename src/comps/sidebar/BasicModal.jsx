@@ -29,7 +29,8 @@ const BasicModal = ({setID}) => {
                     <SignUp setID={setID}/>
                 </div>
             </div>
-            <button onClick={() => toggleModalState()}>Open modal</button>
+            {/* <button className="loginLogout" onClick={() => toggleModalState()}>Login/Logout</button> */}
+            <div className="loginLogout" onClick={() => toggleModalState()}>Login/Logout</div>
         </div>
     )
 }
