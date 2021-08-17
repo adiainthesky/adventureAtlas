@@ -53,11 +53,9 @@ const TripUpload = ({userID, lat, lng}) => {
         e.preventDefault();
         setLoader(true)
 
-        const storageRef = null
-        const url = null
-        // get url for photo 
         if (photo) {
-            storageRef = projectStorage.ref(photo.name);
+        // get url for photo 
+            const storageRef = projectStorage.ref(photo.name);
 
             storageRef.put(photo).on('state_changed', (snap) => {
                 let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
@@ -65,15 +63,29 @@ const TripUpload = ({userID, lat, lng}) => {
             }, (err) => {
                 setError(err);
             }, async () => {
-                url = await storageRef.getDownloadURL();
+                const url = await storageRef.getDownloadURL();
                 // const createdAt = timestamp();
                 // collectionRef.add({ url, createdAt });
                 // setUrl(url);
+
+                uploadTripToDB(userID, lat, lng, { tripName, location, tripType, description, url }, setLoader)
+                resetStateAfterUpload()
             })
-        }    
-        uploadTripToDB(userID, lat, lng, { tripName, location, tripType, description, url }, setLoader)
-        resetStateAfterUpload()
+        }   else {
+                setError('You must include a photo with your submission');
+            } 
     };
+
+
+    // if (selected && types.includes(selected.type)) {
+    //     setPhoto(selected);
+    //     setError('');
+    // } else {
+    //     setPhoto(null);
+    //     setError('Please select a .png or .jpeg image file');
+    // }
+
+
 
     const changeHandler = (e) => {
         let selected = e.target.files[0];
