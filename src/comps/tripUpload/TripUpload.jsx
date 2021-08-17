@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import "./tripUpload.css"
+import { MapContainer, useMapEvent, Marker, Popup, TileLayer, ZoomControl } from "react-leaflet";
 import { projectStorage, db } from '../../firebase/config.js'
 
 const uploadTripToDB = ( userID, lat, lng, tripData, setLoader ) => {

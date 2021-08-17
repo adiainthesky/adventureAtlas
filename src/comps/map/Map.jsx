@@ -12,47 +12,32 @@ import TripDisplay from '../tripDisplay/TripDisplay';
 import Sidebar from "../sidebar/Sidebar";
 import useFirestore from '../../hooks/useFirestore';
 import useData from '../../hooks/useData';
-import plant from '../../thumbtacks/leaf.svg';
+import leaf from '../../thumbtacks/leaf.svg';
 import mug from '../../thumbtacks/mug.svg';
+import suitcase from '../../thumbtacks/suitcase.svg';
 
-export const thumbtack = new Icon({
-    iconUrl: "/simple-luggage.svg",
-    // iconUrl: require("/simple-luggage.svg"),
+export const luggage = new Icon({
+    iconUrl: suitcase,
     iconSize: [20, 20]
 });
 
-export const altThumbtack = new Icon({
-    // iconUrl: "/tree-truck.svg",
-    // iconUrl: require("../thumbtacks/tree-truck.svg"),
-    iconUrl: plant,
+export const plant = new Icon({
+    iconUrl: leaf,
     iconSize: [27, 27]
 });
 
-export const thirdThumbtack = new Icon({
-    // iconUrl: "/sloth.svg",
-    // iconUrl: require("../thumbtacks/sloth.svg"),
+export const tea = new Icon({
     iconUrl: mug,
     iconSize: [32, 32]
 });
 
 export const determineIcon = (location) => {
     switch (location) {
-        case 'Morocco': return altThumbtack;
-        case 'Brazil': return thumbtack;
-        default: return thirdThumbtack;
+        case 'Morocco': return plant;
+        case 'Brazil': return tea;
+        default: return luggage;
     }
 }
-
-// const icons = {
-//     Morocco: 'altThumbtack',
-//     Bolivia: 'thumbtack',
-// };
-
-// const determineIcon = (location) => {
-//     if (icons[location]) return icons[location]
-//         return 'thirdThumbtack';
-//     }
-
 
 const Map = ({userID}) => {
     // look for obj "docs " in useFirestore adn allows us to rename it as var "trips"
@@ -61,17 +46,11 @@ const Map = ({userID}) => {
     const [uploadIsActive, setUploadIsActive] = useState(false);
     const [locations, setLocations] = useState(trips);
 
-    // // if users clicks before finish loading will wipe out where user clicks, hence we add locations
-    // useEffect(() => {
-    //     setLocations([...locations, ...trips])
-    // }, [locations])    
-    // if users clicks before finish loading will wipe out where user clicks, hence we add locations
     useEffect(() => {
         setLocations([...trips])
     }, [trips])   
     
     const deleteTrip = (trip) => {
-        // db.collection("trips").doc(trip.id).delete()
         const currentTrip = db.collection("trips").doc(trip)
         console.log(currentTrip)
         currentTrip.delete()
@@ -130,9 +109,9 @@ const Map = ({userID}) => {
                     />
 
                 {locations && locations.map(location => ( 
-                    // <Marker key={location.id} position={location} icon={ location.tripType==="2" ? thumbtack : altThumbtack}>
+                    // <Marker key={location.id} position={location} icon={ location.tripType==="2" ? thumbtack : plant}>
                     <Marker key={location.id} position={location} icon={determineIcon(location.location)}>
-                    {/* <Marker key={location.id} position={location} icon={ (location.location==="Morocco" ?? thumbtack) || (location.location==="Bolivia" ?? altThumbtack) || altThumbtack}> */}
+                    {/* <Marker key={location.id} position={location} icon={ (location.location==="Morocco" ?? thumbtack) || (location.location==="Bolivia" ?? plant) || altThumbtack}> */}
                         <Popup>            
                             <div className="pop-up-bubble">
                                 <TripDisplay trips={trips} id={location.id} userID={userID} poster_ID={location.poster_ID} deleteTrip={deleteTrip}/>

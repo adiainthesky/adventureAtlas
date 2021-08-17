@@ -22,9 +22,6 @@
 
 
 
-
-
-
 // const uploadTripToDB = ( tripData, setLoader ) => {
 //     const { tripName, location, description, url } = tripData
 //     db.collection('trips')
