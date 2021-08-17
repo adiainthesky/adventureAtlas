@@ -13,21 +13,22 @@ import InfoModal from './InfoModal';
 
 
 const Sidebar = ({activateModal}) => {
-    const [sidebar, setSidebar] = useState(false);
-    const showSidebar = () => setSidebar(!sidebar)
+    const [infoState, setInfoState] = useState(false);
+    const toggleInfo = () => setInfoState(!infoState)
 
     return (
+        <div  className={`infoBackground infoShowing-${infoState}`}>
         <div className='info-area'>    
             {/* this allows me to customize all icons at once */}
             <IconContext.Provider  value={{ color: '#8cac5d'}}>
                 <div className='menu-bars'>
-                    {/* <FaIcons.FaBars onClick={showSidebar} /> */}
-                    <div className='info-icon' onClick={showSidebar}>info</div>
+                    {/* <FaIcons.FaBars onClick={toggleInfo} /> */}
+                    <div className='info-icon' onClick={toggleInfo}>info</div>
                 </div>
-                {/* if the sidebar is selected, the classsName will be 'nav-menu active' (meaning its showing),
+                {/* if the infoState is selected, the classsName will be 'nav-menu active' (meaning its showing),
                 or 'nav-menu', which means its hidden */}
-                <nav className={sidebar ? 'side-menu active' : 'side-menu'}>
-                    <div className='side-menu-items' onClick={showSidebar}>
+                <nav className={infoState ? 'side-menu active' : 'side-menu'}>
+                    <div className='side-menu-items' onClick={toggleInfo}>
                     {/* <div className='side-menu-items'> */}
                         <div className="closer">
                             <div className='menu-bars'>
@@ -50,6 +51,7 @@ const Sidebar = ({activateModal}) => {
                     </div>
                 </nav>
             </IconContext.Provider>
+        </div>
         </div>
     )
 }

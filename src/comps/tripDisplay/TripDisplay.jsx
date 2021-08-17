@@ -25,12 +25,12 @@ const TripDisplay = ({ trips, id, userID, poster_ID, deleteTrip }) => {
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
             /> */}
-                <img
+                {selectedDoc["0"]["photo"] && <img
                     className="img-display"
                     width={300}
                     src={selectedDoc["0"]["photo"]}
                     alt="uploaded pic"
-                />
+                />}
                 {/* <h2> Trip Name: </h2>
                 { selectedDoc["0"]["tripName"] } */}
                 <h2> Location: </h2>

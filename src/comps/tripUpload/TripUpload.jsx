@@ -53,23 +53,26 @@ const TripUpload = ({userID, lat, lng}) => {
         e.preventDefault();
         setLoader(true)
 
+        const storageRef = null
+        const url = null
         // get url for photo 
-        const storageRef = projectStorage.ref(photo.name);
+        if (photo) {
+            storageRef = projectStorage.ref(photo.name);
 
-        storageRef.put(photo).on('state_changed', (snap) => {
-            let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
-            setProgress(percentage);
-        }, (err) => {
-            setError(err);
-        }, async () => {
-            const url = await storageRef.getDownloadURL();
-            // const createdAt = timestamp();
-            // collectionRef.add({ url, createdAt });
-            // setUrl(url);
-
-            uploadTripToDB(userID, lat, lng, { tripName, location, tripType, description, url }, setLoader)
-            resetStateAfterUpload()
-        })
+            storageRef.put(photo).on('state_changed', (snap) => {
+                let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
+                setProgress(percentage);
+            }, (err) => {
+                setError(err);
+            }, async () => {
+                url = await storageRef.getDownloadURL();
+                // const createdAt = timestamp();
+                // collectionRef.add({ url, createdAt });
+                // setUrl(url);
+            })
+        }    
+        uploadTripToDB(userID, lat, lng, { tripName, location, tripType, description, url }, setLoader)
+        resetStateAfterUpload()
     };
 
     const changeHandler = (e) => {
