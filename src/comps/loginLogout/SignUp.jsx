@@ -32,9 +32,9 @@ const SignUp = ({setID}) => {
     } 
     
     const handleStoreUser = (user) => {
-        console.log('**************', user)
         users.doc(user.user.uid).set({
-            user_id: user.user.uid
+            user_id: user.user.uid,
+            email: user.user.email
         })
         .catch((error) => {
             console.error("Error writing document: ", error);

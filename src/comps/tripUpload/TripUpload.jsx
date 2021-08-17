@@ -69,6 +69,7 @@ const TripUpload = ({userID, lat, lng}) => {
                 // setUrl(url);
 
                 uploadTripToDB(userID, lat, lng, { tripName, location, tripType, description, url }, setLoader)
+                console.log(lat,lng)
                 resetStateAfterUpload()
             })
         }   else {

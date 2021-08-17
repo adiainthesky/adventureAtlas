@@ -77,12 +77,15 @@ const Map = ({userID}) => {
                 minZoom={2} 
                 maxZoom={14} 
                 zoomControl={false}
+                continuousWorld={false}
+                worldCopyJump={true}
+
                 // maxBounds={[
-                //     //south west
-                //     [40.712, -74.227],
-                //     //north east
-                //     [40.774, -74.125]
-                // ]}>
+                //      //south west
+                //      [40.712, -74.227],
+                //      //north east
+                //      [40.774, -74.125]
+                //  ]}>
                 >
                 <ZoomControl position="bottomright" zoomInText="🔎" zoomOutText="🌎"></ZoomControl>
                 <MapClickHandler onClick={ (event)=> {
@@ -105,6 +108,8 @@ const Map = ({userID}) => {
                     url="https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}"
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> 
                     contributors'
+                    continuousWorld={false}
+                    // noWrap={true}
                     />
 
                 {locations && locations.map(location => ( 
