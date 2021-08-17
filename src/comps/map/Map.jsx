@@ -68,7 +68,6 @@ const Map = ({userID}) => {
 
     const deleteTrip = (trip) => {
         // db.collection("trips").doc(trip.id).delete()
-        console.log(trip)
         const tester = db.collection("trips").doc(trip)
         console.log(tester)
         tester.delete()
@@ -103,7 +102,6 @@ const Map = ({userID}) => {
                     </Marker>
                 : ""}
 
-
                 <TileLayer
                     url="https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}"
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> 
@@ -116,19 +114,7 @@ const Map = ({userID}) => {
                     {/* <Marker key={location.id} position={location} icon={ (location.location==="Morocco" ?? thumbtack) || (location.location==="Bolivia" ?? altThumbtack) || altThumbtack}> */}
                         <Popup>            
                             <div className="pop-up-bubble">
-                                <TripDisplay trips={trips} id={location.id} deleteTrip={deleteTrip}/>
-                                {/* <TripDisplay photo={location.photo}/> */}
-
-                                {/* {location.trip_name && (
-                                    <h3>TRIP!</h3>
-                                )} */}
-                                {/* <TripUpload lat={location.lat} lng={location.lng} /> */}
-                                {/* <UploadForm /> */}
-                                {/* <ImageGrid setSelectedImg={setSelectedImg} /> */}
-                                {/* only showing frontImg IF one exists (ie, left condition == true) */}
-                                {/* { selectedImg && ( */}
-                                {/* <FrontImg selectedImg={selectedImg} setSelectedImg={setSelectedImg} /> */}
-                                {/* )} */}
+                                <TripDisplay trips={trips} id={location.id} userID={userID} poster_ID={location.poster_ID} deleteTrip={deleteTrip}/>
                             </div>         
                         </Popup>
                     </Marker>

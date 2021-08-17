@@ -6,7 +6,7 @@ const uploadTripToDB = ( userID, lat, lng, tripData, setLoader ) => {
     const { tripName, location, tripType, description, url } = tripData
     db.collection('trips')
     .add({
-        user_id: userID,
+        poster_id: userID,
         tripName: tripName,
         location: location,
         tripType: tripType,

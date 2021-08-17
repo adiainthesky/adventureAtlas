@@ -4,7 +4,7 @@ import { db } from "../../firebase/config.js";
 import { motion } from "framer-motion";
 import "./TripDisplay.css";
 
-const TripDisplay = ({ trips, id, deleteTrip }) => {
+const TripDisplay = ({ trips, id, userID, poster_ID, deleteTrip }) => {
     const docs = trips;
     // const { docs } = useFirestore('trips');
     const selectedDoc = docs.filter((doc) => doc["id"] === id);
@@ -13,6 +13,7 @@ const TripDisplay = ({ trips, id, deleteTrip }) => {
     // const onDelete = (trip) => {
     //     db.collection('trips').doc(trip.id).delete()
     // }
+
 
     if (selectedDoc["0"]) {
         return (
@@ -34,11 +35,13 @@ const TripDisplay = ({ trips, id, deleteTrip }) => {
                 { selectedDoc["0"]["tripName"] } */}
                 <h2> Location: </h2>
                 {selectedDoc["0"]["location"]}
-                <h2> Type of Experience: </h2>
-                {selectedDoc["0"]["tripType"]}
+                <h2> Type of Experience: </h2> {selectedDoc["0"]["tripType"]}
                 <h2> Share a bit about your moment: </h2>
                 {selectedDoc["0"]["description"]}
+                {selectedDoc["0"]["poster_id"] === userID && ( 
                 <button onClick={() => deleteTrip(id)}>Delete</button>
+                )}
+                
             </div>
         );
     } else {
