@@ -12,7 +12,7 @@
 //     // uef
 //     useEffect(() => {
 //         const storageRef = projectStorage.ref(photo.name);
-//         const collectionRef = db.collection('images');
+//         const collectionRef = db.collection('photo');
 //         // snap = snapshot
 //         storageRef.put(photo).on('state_changed', (snap) => {
 //             let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;

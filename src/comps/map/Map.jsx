@@ -91,8 +91,7 @@ const Map = ({userID}) => {
                     //call API to update trips, and if not successful, reset the setFeastures we just called BACK to what it was b4 
                     //warning: if you click 3 times fast and last not successful, it dangerous.  Sara can send me notes since this is apparently a very common pattern (called "eagerly updating the UI", as opposed to "lazily" updating UI)
                 }}/>
-
-                {uploadIsActive ? 
+                {(uploadIsActive && userID)  ? 
                     <Marker position={lat_lng}>
                         <Popup>   
                             <div className="pop-up-bubble"> 

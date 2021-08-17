@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./tripUpload.css"
 import { MapContainer, useMapEvent, Marker, Popup, TileLayer, ZoomControl } from "react-leaflet";
 import { projectStorage, db } from '../../firebase/config.js'
+import ProgressBar from '../../OLD_and_Unused/ProgressBar';
 
 const uploadTripToDB = ( userID, lat, lng, tripData, setLoader ) => {
     const { tripName, location, tripType, description, url } = tripData
@@ -132,7 +133,6 @@ const TripUpload = ({userID, lat, lng}) => {
                 { error && <div className="error">{ error }</div> }
                 {/* this shows the name of the file if it uploaded */}
                 { photo && <div> { photo.name }</div> }
-                {/* { file && <ProgressBar file={file} setFile={setFile}/> } */}
                 </div> 
             {/* </form> */}
             

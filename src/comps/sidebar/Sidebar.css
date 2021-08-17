@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis');
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -42,16 +44,23 @@
 /* }  */
 
 .side-menu {
-    background-color: #dddac6;
-    /* border-right:2px solid black, 0 0 25px #acbd86, 0 0 5px black; */
-    border-right:2px solid rgb(63, 16, 97);
-    line-height:4em;
-    box-shadow: 1px 1px 2px #000000;
-    /* #aebd7c */
+    background: radial-gradient(
+    ellipse at left bottom,
+    #7e8768 0%,
+    #96a07b 39%,
+    #b5c195 100%
+    );
+    box-shadow: 0 50px 120px -20px rgba(43, 46, 40, 0.8);
+    border-right:2px solid #7e8768;
+    border-bottom:2px solid #7e8768;
+    border-radius: 0 0 1em 0;
+
+    padding: 0px 20px;
+    line-height:1.5em;
     /* this stays set with sizing */
-    width: 220px;
+    width: 50vh;
     /* this changes with resizing but text doesnt fully match with side-text*/
-    height: 33vh;
+    height: 90vh;
     /* border-radius: 20px; */
     display: flex;
     justify-content: center;
@@ -70,11 +79,12 @@
 .side-text {
     /* removes the underline */
     text-decoration: none;
+    font-weight: bold;
+    /* color: black; */
     color: #5a443c;
     font-size: 18px;
     /* allows it to adjust with screen-resizing, but is not coordinated with side-menu height */
-    height: 6vh;
-    width: 95%;
+
     display: flex;
     align-items: center;
     /* padding: 0 16px; */
@@ -86,6 +96,17 @@
     padding: 10px 0px 8px 20px;
     list-style: none;
 }
+
+p.aboutText {
+    color: rgb(8, 9, 7);
+    text-decoration: none;
+    font-size: 16px;
+    font-family: Dosis;
+    font-weight: bold;
+
+    /* font-weight:bold; */
+}
+
 /* .closer :hover {
     background-color: #3a1a6f;
  */

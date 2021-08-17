@@ -27,15 +27,15 @@ const Sidebar = ({activateModal}) => {
                 {/* if the sidebar is selected, the classsName will be 'nav-menu active' (meaning its showing),
                 or 'nav-menu', which means its hidden */}
                 <nav className={sidebar ? 'side-menu active' : 'side-menu'}>
-                    <ul className='side-menu-items' onClick={showSidebar}>
-                    {/* <ul className='side-menu-items'> */}
-                        <li className="closer">
+                    <div className='side-menu-items' onClick={showSidebar}>
+                    {/* <div className='side-menu-items'> */}
+                        <div className="closer">
                             <div className='menu-bars'>
                                 {/* got below icon from 'https://react-icons.github.io/' then imported above' */}
                                 <CgIcons.CgCloseR size={30}/>
                             </div>
-                        </li>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium, expedita ab porro alias rerum nemo commodi? Qui natus impedit neque accusantium rerum, labore animi repellendus quam, ab eligendi voluptatum possimus!</p>
+                        </div>
+                        <p className="aboutText">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium, expedita ab porro alias rerum nemo commodi? Qui natus impedit neque accusantium rerum, labore animi repellendus quam, ab eligendi voluptatum possimus!</p>
                         {/* {SidebarData.map((item, index) => {
                             return (
                                 <li key={index} className={item.className} onClick={activateModal}>
@@ -47,7 +47,7 @@ const Sidebar = ({activateModal}) => {
                             )
                         })} */}
                     {/* <InfoModal /> */}
-                    </ul>
+                    </div>
                 </nav>
             </IconContext.Provider>
         </div>
