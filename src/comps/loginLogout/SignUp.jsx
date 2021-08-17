@@ -5,7 +5,7 @@ import { db } from '../../firebase/config';
 // import { users } from '../../firebase/config';
 import Login from './Login';
 import Logout from './Logout';
-import './SignUp.css'
+import './loginLogout.css'
 
 
 const SignUp = ({setID}) => {

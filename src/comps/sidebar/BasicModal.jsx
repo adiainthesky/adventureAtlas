@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import SignUp from '../signUp/SignUp';
+import SignUp from '../loginLogout/SignUp';
 import './BasicModal.css'
 
 const BasicModal = ({setID}) => {

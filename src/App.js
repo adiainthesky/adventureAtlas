@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './App.css';
 import Map from "./comps/map/Map";
-import SignUp from "./comps/signUp/SignUp";
+import SignUp from "./comps/loginLogout/SignUp";
 import TripUpload from "./comps/tripUpload/TripUpload";
 import Sidebar from "./comps/sidebar/Sidebar";
 import SideAndModal from "./comps/sidebar/SideAndModal";

@@ -4,20 +4,6 @@
     padding: 0;
 } */
 
-
-button {
-border: none;
-outline: none;
-width: 100%;
-padding: 15px 0;
-color: rgb(34, 45, 12);
-font-weight:900;
-font-size: 18px;
-letter-spacing: 1px;
-background: #bdb68d;
-cursor: pointer;
-}
-
 .login {
 /* width: 100%; */
 /* min-height: 100vh; */
@@ -25,6 +11,8 @@ cursor: pointer;
 /* background: #e9e9e9; */
 /* display: flex; */
 }
+
+
 
 .login .loginContainer {
 padding: 20px;
@@ -98,14 +86,21 @@ color: red;
 font-size: 16px;
 }
 
-.logout {
+.logout button {
 width: 100%;
-min-height: 100vh;
+margin: 10px;
+padding: 10px;
+border-color: rgb(4, 63, 42);
+border: 13px;
+font-weight: 900;
+font-size: 18px;
+letter-spacing: 1px;
+cursor: pointer;
 background: radial-gradient(
     ellipse at left bottom,
-    rgba(22, 24, 47, 1) 0%,
-    rgba(38, 20, 72, 0.9) 59%,
-    rgba(17, 27, 75, 0.9) 100%
+    #abb195 0%,
+    #71795d 59%,
+    rgba(96, 123, 70, 0.9) 100%
 );
 }
 
@@ -116,14 +111,12 @@ padding: 20px 40px;
 display: flex;
 align-items: center;
 justify-content: space-between;
+padding: 20px;
+margin: auto;
+width: 100%;
 }
 
 .logout nav h2 {
 color: #fff;
 }
 
-.logout nav button {
-width: 86px;
-padding: 8px 0;
-background: #3a2b58;
-}

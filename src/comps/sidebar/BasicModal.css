@@ -12,12 +12,12 @@
     width: 100vw;
     top: 0;
     left: 0;
-    background: rgba(50, 60, 43, 0.6);
+    background: rgba(30, 38, 25, 0.6);
     /* means its hidden  */
     opacity: 0;
     /* means even if its hidden, you cant accidentally interact with it BUT this prevents sign-up typing*/
     pointer-events: none;
-    transition: opacity 0.4s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
     /* for some reason this stopped the button (and maybe all of modal?) from appearing at the bottom of the page */
     display: flex;
 }
