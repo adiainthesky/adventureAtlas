@@ -87,20 +87,23 @@ font-size: 16px;
 }
 
 .logout button {
-width: 100%;
-margin: 10px;
-padding: 10px;
-border-color: rgb(4, 63, 42);
-border: 13px;
-font-weight: 900;
-font-size: 18px;
-letter-spacing: 1px;
-cursor: pointer;
-background: radial-gradient(
-    ellipse at left bottom,
-    #abb195 0%,
-    #71795d 59%,
-    rgba(96, 123, 70, 0.9) 100%
+    color:rgba(24, 33, 25, 0.8);
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 1px 1px 2px #2a352b;
+    border-color: rgb(61, 82, 59);
+    border-right: 13px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    background: radial-gradient(
+        ellipse at left bottom,
+        #abb195 0%,
+        #71795d 59%,
+        rgba(96, 123, 70, 0.9) 100%
 );
 }
 
