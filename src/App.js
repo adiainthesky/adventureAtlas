@@ -20,6 +20,7 @@ const setID = (id) => {setuserID(id)}
     <div>
       {/* <SignUp /> */}
       <SideAndModal setID={setID}/>
+      {/* <h1> Welcome to the Adventure Atlas!</h1> */}
       {/* <Sidebar /> */}
       {/* <Map /> */}
       <Map userID={userID}/>

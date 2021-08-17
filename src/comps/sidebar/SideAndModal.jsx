@@ -12,6 +12,7 @@ const SideAndModal = ({setID}) => {
         <div>
             {/* {modalState ? <BasicModal /> : ""} */}
             <BasicModal setID={setID}/>
+            {/* <h1> Welcome to the Adventure Atlas!</h1> */}
             <Sidebar activateModal={toggleModalState}/>
         </div>
     )

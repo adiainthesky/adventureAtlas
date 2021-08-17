@@ -61,17 +61,26 @@ const Map = ({userID}) => {
     const [uploadIsActive, setUploadIsActive] = useState(false);
     const [locations, setLocations] = useState(trips);
 
+    // // if users clicks before finish loading will wipe out where user clicks, hence we add locations
+    // useEffect(() => {
+    //     setLocations([...locations, ...trips])
+    // }, [locations])    
     // if users clicks before finish loading will wipe out where user clicks, hence we add locations
     useEffect(() => {
-        setLocations([...locations, ...trips])
-    }, [trips])    
-
+        setLocations([...trips])
+    }, [trips])   
+    
     const deleteTrip = (trip) => {
         // db.collection("trips").doc(trip.id).delete()
-        const tester = db.collection("trips").doc(trip)
-        console.log(tester)
-        tester.delete()
+        const currentTrip = db.collection("trips").doc(trip)
+        console.log(currentTrip)
+        currentTrip.delete()
         .then(() => {
+            // create shallow copy so that im not modifying the actual locations (because this is a rule of useState -- to avoid unintended consequences)
+            // const newLocations = [...locations]
+            // console.log(trip)
+            // newLocations.splice(newLocations.indexOf(trip), 1)
+            // setLocations(newLocations)
             alert('Your trip has been deleted!');
         })
         .catch(error => {
@@ -83,7 +92,19 @@ const Map = ({userID}) => {
         <div>
             {/* <Sidebar />  */}
              {/* set zoomControl to false since i am importing a new one that i can adjust */}
-            <MapContainer center={[20.555, -25]} zoom={2.5} minZoom={2} maxZoom={14} zoomControl={false}>
+            <MapContainer 
+                center={[20.555, -25]} 
+                zoom={2.5} 
+                minZoom={2} 
+                maxZoom={14} 
+                zoomControl={false}
+                // maxBounds={[
+                //     //south west
+                //     [40.712, -74.227],
+                //     //north east
+                //     [40.774, -74.125]
+                // ]}>
+                >
                 <ZoomControl position="bottomright" zoomInText="🔎" zoomOutText="🌎"></ZoomControl>
                 <MapClickHandler onClick={ (event)=> {
                     setLat_Lng({lat: event.latlng.lat, lng: event.latlng.lng})

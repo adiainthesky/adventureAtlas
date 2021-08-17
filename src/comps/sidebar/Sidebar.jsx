@@ -35,7 +35,8 @@ const Sidebar = ({activateModal}) => {
                                 <CgIcons.CgCloseR size={30}/>
                             </div>
                         </li>
-                        {SidebarData.map((item, index) => {
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium, expedita ab porro alias rerum nemo commodi? Qui natus impedit neque accusantium rerum, labore animi repellendus quam, ab eligendi voluptatum possimus!</p>
+                        {/* {SidebarData.map((item, index) => {
                             return (
                                 <li key={index} className={item.className} onClick={activateModal}>
                                     <div>
@@ -44,7 +45,7 @@ const Sidebar = ({activateModal}) => {
                                     </div> 
                                 </li>
                             )
-                        })}
+                        })} */}
                     {/* <InfoModal /> */}
                     </ul>
                 </nav>
