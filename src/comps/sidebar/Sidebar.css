@@ -19,17 +19,18 @@
 .side-menu {
     background: radial-gradient(
     ellipse at left bottom,
-    #7e8768 0%,
+    /* #7e8768 0%,
     #96a07b 39%,
-    #b5c195 100%
+    #b5c195 100% */
+    #bba483 0%, #bda785 27%, #d3c9b4 100%
     );
+
     box-shadow: 0 50px 120px -20px rgba(43, 46, 40, 0.8);
     border-right:2px solid #7e8768;
     border-bottom:2px solid #7e8768;
     border-radius: 0 0 1em 0;
 
-    padding: 0px 20px;
-    padding-bottom: 15px;
+    padding: 15px 20px;
     /* this stays set with sizing */
     width: 25vw;
     /* this changes with resizing but text doesnt fully match with side-text*/

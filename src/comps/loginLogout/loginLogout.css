@@ -101,10 +101,10 @@ font-size: 16px;
     cursor: pointer;
     background: radial-gradient(
         ellipse at left bottom,
-        #abb195 0%,
-        #71795d 59%,
-        rgba(96, 123, 70, 0.9) 100%
-);
+        #aab97f 0%, 
+        #bfc099 59%, 
+        #c2c595 100% );
+
 }
 
 .logout nav {
