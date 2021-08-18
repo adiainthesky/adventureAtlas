@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import SignUp from '../loginLogout/SignUp';
 import './BasicModal.css'
 
-const BasicModal = ({setID}) => {
+const BasicModal = ({setID, userID}) => {
     
     const [modalState, setModalState] = useState(false);
     const toggleModalState = () => setModalState(!modalState)
@@ -30,7 +30,10 @@ const BasicModal = ({setID}) => {
                 </div>
             </div>
             {/* <button className="loginLogout" onClick={() => toggleModalState()}>Login/Logout</button> */}
-            <div className="loginLogout" onClick={() => toggleModalState()}>Login/Logout</div>
+            <div className="loginLogout" onClick={() => toggleModalState()}>
+                {userID ? "Logout": "Login to add your adventures!"
+                }
+                </div>
         </div>
     )
 }

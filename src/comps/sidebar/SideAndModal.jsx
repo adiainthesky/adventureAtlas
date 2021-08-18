@@ -3,7 +3,7 @@ import BasicModal from './BasicModal';
 import Sidebar from './Sidebar';
 
 
-const SideAndModal = ({setID}) => {
+const SideAndModal = ({setID, userID}) => {
     
     const [modalState, setModalState] = useState(false);
     const toggleModalState = () => setModalState(!modalState)
@@ -11,7 +11,7 @@ const SideAndModal = ({setID}) => {
     return (
         <div>
             {/* {modalState ? <BasicModal /> : ""} */}
-            <BasicModal setID={setID}/>
+            <BasicModal setID={setID} userID={userID}/>
             {/* <h1> Welcome to the Adventure Atlas!</h1> */}
             <Sidebar activateModal={toggleModalState}/>
         </div>

@@ -19,7 +19,7 @@ const setID = (id) => {setuserID(id)}
   return (
     <div>
       {/* <SignUp /> */}
-      <SideAndModal setID={setID}/>
+      <SideAndModal setID={setID} userID={userID}/>
       {/* <h1> Welcome to the Adventure Atlas!</h1> */}
       {/* <Sidebar /> */}
       {/* <Map /> */}
