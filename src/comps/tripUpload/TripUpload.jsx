@@ -28,7 +28,7 @@ const uploadTripToDB = ( userID, lat, lng, tripData, setLoader, setMessage ) => 
     
 }
 
-const TripUpload = ({userID, lat, lng, setMessage, settripIcon}) => {
+const TripUpload = ({userID, lat, lng, setMessage}) => {
     const [tripName, setTripName] = useState("");
     const [location, setLocation] = useState("");
     const [description, setDescription] = useState("");

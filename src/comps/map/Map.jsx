@@ -35,16 +35,13 @@ const Map = ({userID, setMessage, setWelcome}) => {
     const [lat_lng, setLat_Lng] = useState(null);
     const [uploadIsActive, setUploadIsActive] = useState(false);
     const [locations, setLocations] = useState(trips);
-    const [tripIcon, settripIcon] = useState("");
 
     useEffect(() => {
         setLocations([...trips])
     }, [trips])   
-    console.log(tripIcon)
 
     const deleteTrip = (trip ) => {
         const currentTrip = db.collection("trips").doc(trip)
-        console.log(currentTrip)
         currentTrip.delete()
         .then(() => {
             // create shallow copy so that im not modifying the actual locations (because this is a rule of useState -- to avoid unintended consequences)
@@ -93,7 +90,7 @@ const Map = ({userID, setMessage, setWelcome}) => {
                     <Marker position={lat_lng}>
                         <Popup>   
                             <div className="pop-up-bubble"> 
-                                <TripUpload userID={userID} lat={lat_lng.lat} lng={lat_lng.lng} setMessage={setMessage} settripIcon={settripIcon}
+                                <TripUpload userID={userID} lat={lat_lng.lat} lng={lat_lng.lng} setMessage={setMessage}
                                 />
                             </div>                    
                         </Popup>
