@@ -1,22 +1,38 @@
+.welcomeComponent {
+    /* z-index: 1000; */
+}
+
 p.welcome {
     padding-top: 20px;
     padding-left: 25px;
-    color: #dfdac4;
+    /* color: #dfdac4; */
+    color: #c3801a;
     text-shadow: 1px 1px 2px black, 0 0 25px #acbd86, 0 0 5px black;
-    font-size: 45px;
+    font-size: 65px;
     position: absolute;
-    z-index: 1000;
+    /* z-index: 1000; */
     /* padding-left: ; */
     padding-left: 40%;
     padding-top: 20%;
 }
 
+.welcomeBackground {
+    position: fixed;
+    /* z-index: 1000; */
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background: rgba(30, 38, 25, 0.6);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
 
-
-/* .welcomeShowing-true {
+.welcomeShowing-true {
     opacity: 1;
     pointer-events: visible;
     color: tomato;
-} */
+    z-index: 1000;
+}
 
 
