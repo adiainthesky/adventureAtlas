@@ -102,9 +102,9 @@ const TripUpload = ({userID, lat, lng, setMessage}) => {
 
     return (
         <form className="form" onSubmit={handleSubmit}>
-            <label>Trip Name</label>
+            <label>Name of Adventure</label>
             <input 
-                placeholder="Trip Name"
+                placeholder="Adventure"
                 value={tripName}
                 onChange={(e) => setTripName(e.target.value)} 
                 />
@@ -116,7 +116,7 @@ const TripUpload = ({userID, lat, lng, setMessage}) => {
                 onChange={(e) => setLocation(e.target.value)} 
                 />
 
-            <label>Type of Experience</label>
+            <label>Type</label>
             <select 
                 value={tripType} 
                 // e.target.value grabs associated number, i wanted text but for some reason firebase didnt like e.target.text
@@ -129,9 +129,9 @@ const TripUpload = ({userID, lat, lng, setMessage}) => {
             </select>
 
             
-            <label>Description</label>
+            <label>Adventure Story</label>
             <textarea 
-                placeholder="Description"
+                placeholder="Please share a few words about your special memory in this place"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)} 
                 ></textarea>
@@ -148,7 +148,7 @@ const TripUpload = ({userID, lat, lng, setMessage}) => {
                 {/* if left conditional is true, then output left conditional */}
                 { error && <div className="error">{ error }</div> }
                 {/* this shows the name of the file if it uploaded */}
-                { photo && <div> { photo.name }</div> }
+                { photo && <div> Uploaded: { photo.name }</div> }
                 </div> 
             {/* </form> */}
             

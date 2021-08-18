@@ -28,7 +28,7 @@ textarea {
     background: #e0dec7;
     /* inside input block */
     font-size: 16px;
-    color: rgb(63, 16, 97);
+    color: #5e443c;
     /* outline: none; */
 }
 
@@ -36,7 +36,7 @@ textarea {
 /* ???only impacts description and not rtip name or location, why???? */
 .form > input:focus,
 textarea:focus {
-    border: 3px solid rgb(63, 16, 97);
+    border: 3px solid #5e443c;
 }
 
 /* how wide/tall to make 'description' area */
@@ -48,14 +48,15 @@ textarea:focus {
 
 .form > label {
     padding-top: 5px;
-    color: rgb(63, 16, 97);
+    color: #46332d;
     font-size: 18px;
     font-weight: bold;
 }
 
 .form > button.add-trip-button {
     margin-top: 5px;
-    background-color: rgb(63, 16, 97);
+    background-color: #b48475;
+    border-color: #7e5b50;
     font-size: 20px;
     border-radius: 3px;
     color: #fff;
@@ -69,9 +70,10 @@ textarea:focus {
     background-color: grey;
 }
 
-/* .form > button:hover {
-    background-color: rgb(0, 0, 196);
-} */
+.form > button:hover {
+    background-color: #7e5b50;
+    border-color: #b48475;
+}
 
 /* .bubble {
     min-width: 400px;
@@ -116,5 +118,7 @@ input[type=file]::file-selector-button:hover {
 
 .output {
     font-size: 14px;
-    color: red;
+    font-weight: bold;
+    color: rgb(169, 84, 20);
 }
+
