@@ -23,10 +23,10 @@
 }
 
 .pop-up-bubble {
-    padding: 1em;
+
     border: 5px solid #5e443c;
-    min-height: 500px;
-    min-width: 325px;
+    /* min-height: 500px; */
+    min-width: 350px;
     /* padding-right: 30px; */
     border-radius: 1em;
     background-color: #cdcea2;
@@ -36,6 +36,7 @@
 
 .pop-up-img {
     max-height: 30px;
+    /* padding-left: 15px; */
 }
 
  

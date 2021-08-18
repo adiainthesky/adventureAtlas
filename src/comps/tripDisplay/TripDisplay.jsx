@@ -31,13 +31,11 @@ const TripDisplay = ({ trips, id, userID, poster_ID, deleteTrip }) => {
                     src={selectedDoc["0"]["photo"]}
                     alt="uploaded pic"
                 />}
-                {/* <h2> Trip Name: </h2>
-                { selectedDoc["0"]["tripName"] } */}
-                <h2> Location: </h2>
-                {selectedDoc["0"]["location"]}
-                <h2> Type of Experience: </h2> {selectedDoc["0"]["tripType"]}
-                <h2> Share a bit about your moment: </h2>
-                {selectedDoc["0"]["description"]}
+                <h1>{ selectedDoc["0"]["tripName"]}</h1>
+                
+                <h2>{selectedDoc["0"]["location"]}</h2>
+                {/* <h2> Type of Experience: </h2> {selectedDoc["0"]["tripType"]} */}
+                <p>{selectedDoc["0"]["description"]}</p>
                 {selectedDoc["0"]["poster_id"] === userID && ( 
                 <button onClick={() => deleteTrip(id)}>Delete</button>
                 )}

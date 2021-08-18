@@ -120,7 +120,7 @@ const Map = ({userID, setMessage, setWelcome}) => {
                     // <Marker key={location.id} position={location} icon={ location.tripType==="2" ? thumbtack : plant}>
                     <Marker key={location.id} position={location} icon={determineIcon(location.location)}>
                     {/* <Marker key={location.id} position={location} icon={ (location.location==="Morocco" ?? thumbtack) || (location.location==="Bolivia" ?? plant) || altThumbtack}> */}
-                        <Popup>            
+                        <Popup >            
                             <div className="pop-up-bubble">
                                 <TripDisplay trips={trips} id={location.id} userID={userID} poster_ID={location.poster_ID} deleteTrip={deleteTrip}/>
                             </div>         
