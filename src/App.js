@@ -8,22 +8,25 @@ import SideAndModal from "./comps/sidebar/SideAndModal";
 import InfoModal from "./comps/sidebar/InfoModal";
 import BasicModal from "./comps/sidebar/BasicModal";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
+import Messages from './comps/Messages/Messages';
 
 export default function App() {
 
+const [message, setMessage] = useState("");  
 const [userID, setuserID] = useState(null);
 const setID = (id) => {setuserID(id)}
+
 
   console.log(userID)
   return (
     <div>
       {/* <SignUp /> */}
+      <Messages message={message}/>
       <SideAndModal setID={setID} userID={userID}/>
       {/* <h1> Welcome to the Adventure Atlas!</h1> */}
       {/* <Sidebar /> */}
       {/* <Map /> */}
-      <Map userID={userID}/>
+      <Map userID={userID} setMessage={setMessage}/>
       {/* <InfoModal /> */}
       {/* <BasicModal /> */}
       {/* <TripUpload /> */}

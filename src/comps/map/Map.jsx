@@ -39,7 +39,7 @@ export const determineIcon = (location) => {
     }
 }
 
-const Map = ({userID}) => {
+const Map = ({userID, setMessage}) => {
     // look for obj "docs " in useFirestore adn allows us to rename it as var "trips"
     const { db, docs: trips } = useFirestore('trips');
     const [lat_lng, setLat_Lng] = useState(null);
@@ -50,7 +50,7 @@ const Map = ({userID}) => {
         setLocations([...trips])
     }, [trips])   
     
-    const deleteTrip = (trip) => {
+    const deleteTrip = (trip ) => {
         const currentTrip = db.collection("trips").doc(trip)
         console.log(currentTrip)
         currentTrip.delete()
@@ -60,7 +60,7 @@ const Map = ({userID}) => {
             // console.log(trip)
             // newLocations.splice(newLocations.indexOf(trip), 1)
             // setLocations(newLocations)
-            alert('Your trip has been deleted!');
+            setMessage('Your trip has been deleted!');
         })
         .catch(error => {
             alert(error.message);
@@ -90,7 +90,9 @@ const Map = ({userID}) => {
                 <ZoomControl position="bottomright" zoomInText="🔎" zoomOutText="🌎"></ZoomControl>
                 <MapClickHandler onClick={ (event)=> {
                     setLat_Lng({lat: event.latlng.lat, lng: event.latlng.lng})
+                    // this is whether or not we are showing the popup
                     setUploadIsActive(true)
+                    setMessage("")
                     //call API to update trips, and if not successful, reset the setFeastures we just called BACK to what it was b4 
                     //warning: if you click 3 times fast and last not successful, it dangerous.  Sara can send me notes since this is apparently a very common pattern (called "eagerly updating the UI", as opposed to "lazily" updating UI)
                 }}/>
@@ -98,7 +100,8 @@ const Map = ({userID}) => {
                     <Marker position={lat_lng}>
                         <Popup>   
                             <div className="pop-up-bubble"> 
-                                <TripUpload userID={userID} lat={lat_lng.lat} lng={lat_lng.lng} />
+                                <TripUpload userID={userID} lat={lat_lng.lat} lng={lat_lng.lng} setMessage={setMessage}
+                                />
                             </div>                    
                         </Popup>
                     </Marker>

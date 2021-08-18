@@ -4,7 +4,7 @@ import { MapContainer, useMapEvent, Marker, Popup, TileLayer, ZoomControl } from
 import { projectStorage, db } from '../../firebase/config.js'
 import ProgressBar from '../../OLD_and_Unused/ProgressBar';
 
-const uploadTripToDB = ( userID, lat, lng, tripData, setLoader ) => {
+const uploadTripToDB = ( userID, lat, lng, tripData, setLoader, setMessage ) => {
     const { tripName, location, tripType, description, url } = tripData
     db.collection('trips')
     .add({
@@ -18,7 +18,7 @@ const uploadTripToDB = ( userID, lat, lng, tripData, setLoader ) => {
         lng: lng,
     })
     .then(() => {
-        alert('Your trip has been submitted!');
+        setMessage('Your trip has been submitted!');
         setLoader(false);
     })
     .catch(error => {
@@ -28,7 +28,7 @@ const uploadTripToDB = ( userID, lat, lng, tripData, setLoader ) => {
     
 }
 
-const TripUpload = ({userID, lat, lng}) => {
+const TripUpload = ({userID, lat, lng, setMessage}) => {
     const [tripName, setTripName] = useState("");
     const [location, setLocation] = useState("");
     const [description, setDescription] = useState("");
@@ -68,7 +68,7 @@ const TripUpload = ({userID, lat, lng}) => {
                 // collectionRef.add({ url, createdAt });
                 // setUrl(url);
 
-                uploadTripToDB(userID, lat, lng, { tripName, location, tripType, description, url }, setLoader)
+                uploadTripToDB(userID, lat, lng, { tripName, location, tripType, description, url }, setLoader, setMessage)
                 console.log(lat,lng)
                 resetStateAfterUpload()
             })
