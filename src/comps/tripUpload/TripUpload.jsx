@@ -73,6 +73,7 @@ const TripUpload = ({userID, lat, lng, setMessage}) => {
             })
         }   else {
                 setError('You must include a photo with your submission');
+                setLoader(false);
             } 
     };
 
@@ -145,7 +146,7 @@ const TripUpload = ({userID, lat, lng, setMessage}) => {
                 />
                 <div className="output">
                 {/* if left conditional is true, then output left conditional */}
-                { error && <div className="error">{ error }</div> }
+                { error && <div className="error" >{ error }</div> }
                 {/* this shows the name of the file if it uploaded */}
                 { photo && <div> Uploaded: { photo.name }</div> }
                 </div> 

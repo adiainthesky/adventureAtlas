@@ -16,7 +16,12 @@ h1, h2, p {
     line-height: 1.5em;
 }
 
+p {
+    font-size: 13px;
+}
+
 button.deleteButton {
+    padding-top: 4px;
     margin-left: 115px;
     background-color: #b48475;
     border-color: #7e5b50;
