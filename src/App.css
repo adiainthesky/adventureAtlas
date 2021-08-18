@@ -1,11 +1,9 @@
-/* ???why isnt this applying? (needed to manually put it in all individual files0 */
 * {
+  /* this is critical for making sure there are no hite spaces between the tiles and at edge of map */
+  margin: 0;
+  /* padding: 0; */
   font-family: papyrus, Luminari, Marker Felt;
 }
-
-/* .app2 {
-  padding: 100px;
-} */
 
 .leaflet-container {
   width: 100%;
