@@ -16,25 +16,15 @@ import leaf from '../../thumbtacks/leaf.svg';
 import mug from '../../thumbtacks/mug.svg';
 import suitcase from '../../thumbtacks/suitcase.svg';
 
-export const luggage = new Icon({
-    iconUrl: suitcase,
-    iconSize: [20, 20]
-});
 
-export const plant = new Icon({
-    iconUrl: leaf,
-    iconSize: [27, 27]
-});
+export const luggage = new Icon({iconUrl: suitcase, iconSize: [20, 20]});
+export const plant = new Icon({iconUrl: leaf, iconSize: [27, 27]});
+export const tea = new Icon({iconUrl: mug, iconSize: [32, 32]});
 
-export const tea = new Icon({
-    iconUrl: mug,
-    iconSize: [32, 32]
-});
-
-export const determineIcon = (location) => {
-    switch (location) {
-        case 'Morocco': return plant;
-        case 'Brazil': return tea;
+export const determineIcon = (tripType) => {
+    switch (tripType) {
+        case '2': return tea;
+        case '3': return plant;
         default: return luggage;
     }
 }
@@ -45,11 +35,13 @@ const Map = ({userID, setMessage, setWelcome}) => {
     const [lat_lng, setLat_Lng] = useState(null);
     const [uploadIsActive, setUploadIsActive] = useState(false);
     const [locations, setLocations] = useState(trips);
+    const [tripIcon, settripIcon] = useState("");
 
     useEffect(() => {
         setLocations([...trips])
     }, [trips])   
-    
+    console.log(tripIcon)
+
     const deleteTrip = (trip ) => {
         const currentTrip = db.collection("trips").doc(trip)
         console.log(currentTrip)
@@ -72,7 +64,7 @@ const Map = ({userID, setMessage, setWelcome}) => {
             {/* <Sidebar />  */}
              {/* set zoomControl to false since i am importing a new one that i can adjust */}
             <MapContainer 
-                center={[20.555, -25]} 
+                center={[5.555, -25]} 
                 zoom={2.5} 
                 minZoom={2} 
                 maxZoom={14} 
@@ -101,7 +93,7 @@ const Map = ({userID, setMessage, setWelcome}) => {
                     <Marker position={lat_lng}>
                         <Popup>   
                             <div className="pop-up-bubble"> 
-                                <TripUpload userID={userID} lat={lat_lng.lat} lng={lat_lng.lng} setMessage={setMessage}
+                                <TripUpload userID={userID} lat={lat_lng.lat} lng={lat_lng.lng} setMessage={setMessage} settripIcon={settripIcon}
                                 />
                             </div>                    
                         </Popup>
@@ -118,7 +110,7 @@ const Map = ({userID, setMessage, setWelcome}) => {
 
                 {locations && locations.map(location => ( 
                     // <Marker key={location.id} position={location} icon={ location.tripType==="2" ? thumbtack : plant}>
-                    <Marker key={location.id} position={location} icon={determineIcon(location.location)}>
+                    <Marker key={location.id} position={location} icon={determineIcon(location.tripType)}>
                     {/* <Marker key={location.id} position={location} icon={ (location.location==="Morocco" ?? thumbtack) || (location.location==="Bolivia" ?? plant) || altThumbtack}> */}
                         <Popup >            
                             <div className="pop-up-bubble">

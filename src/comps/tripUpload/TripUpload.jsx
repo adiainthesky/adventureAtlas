@@ -28,13 +28,13 @@ const uploadTripToDB = ( userID, lat, lng, tripData, setLoader, setMessage ) => 
     
 }
 
-const TripUpload = ({userID, lat, lng, setMessage}) => {
+const TripUpload = ({userID, lat, lng, setMessage, settripIcon}) => {
     const [tripName, setTripName] = useState("");
     const [location, setLocation] = useState("");
     const [description, setDescription] = useState("");
     const [photo, setPhoto] = useState(null);
     const [error, setError] = useState(null);
-    const [tripType, setTripType] = useState(["Cultural"]);
+    const [tripType, setTripType] = useState(1);
 
     const [loader, setLoader] = useState(false);
     const [progress, setProgress] = useState(0);
@@ -45,7 +45,7 @@ const TripUpload = ({userID, lat, lng, setMessage}) => {
         setTripName("");
         setLocation("");
         setDescription("");
-        setTripType("1");
+        setTripType("");
         setPhoto(null);
     }
 
@@ -69,7 +69,6 @@ const TripUpload = ({userID, lat, lng, setMessage}) => {
                 // setUrl(url);
 
                 uploadTripToDB(userID, lat, lng, { tripName, location, tripType, description, url }, setLoader, setMessage)
-                console.log(lat,lng)
                 resetStateAfterUpload()
             })
         }   else {
