@@ -1,6 +1,5 @@
 .leaflet-container {
     width: 100%;
-
     height: 100vh;
 }
   
@@ -12,8 +11,12 @@
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   background-color: #bdc993;
-}`
+}
 
+.map {
+  /* border: 85px solid rgb(63, 16, 97); 
+  border-bottom: 120px rebeccapurple; */
+}
 
 .App {
   text-align: center;

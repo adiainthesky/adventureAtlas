@@ -39,7 +39,7 @@ export const determineIcon = (location) => {
     }
 }
 
-const Map = ({userID, setMessage}) => {
+const Map = ({userID, setMessage, setWelcome}) => {
     // look for obj "docs " in useFirestore adn allows us to rename it as var "trips"
     const { db, docs: trips } = useFirestore('trips');
     const [lat_lng, setLat_Lng] = useState(null);
@@ -68,7 +68,7 @@ const Map = ({userID, setMessage}) => {
     }
 
     return (
-        <div>
+        <div className="map">
             {/* <Sidebar />  */}
              {/* set zoomControl to false since i am importing a new one that i can adjust */}
             <MapContainer 
@@ -93,6 +93,7 @@ const Map = ({userID, setMessage}) => {
                     // this is whether or not we are showing the popup
                     setUploadIsActive(true)
                     setMessage("")
+                    setWelcome(false)
                     //call API to update trips, and if not successful, reset the setFeastures we just called BACK to what it was b4 
                     //warning: if you click 3 times fast and last not successful, it dangerous.  Sara can send me notes since this is apparently a very common pattern (called "eagerly updating the UI", as opposed to "lazily" updating UI)
                 }}/>

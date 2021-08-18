@@ -85,26 +85,33 @@ textarea:focus {
 
 .photo-upload-button {
     padding-left: 28px;
-    margin: 0px;
+    /* margin: 0px; */
     /* font-weight: 500; */
-    width: 112px;
+    width: 83px;
     font-size: 16px;
     border-radius: 15px;
-    color: #fff;
+    background-color: #cdcea2;
     cursor: pointer;
     transition: 0.2s ease-in-out;
     /* ???Why wont thse change?? */
     font-family: papyrus, Luminari, Marker Felt;
-    border-radius: 15px;
     color: #fff;
     /* background-color: palevioletred; */
 }
 
-/* ????why wont this work? */
-.photo-upload-button :hover {
-    background-color: #d87caf;
-    border-radius: 5px;
-    width: auto;
+
+input[type=file]::file-selector-button {
+    border: 2px solid #414843;
+    padding: .2em .4em;
+    border-radius: .2em;
+    background-color: #aab3a4;
+    transition: 1s;
+}
+
+input[type=file]::file-selector-button:hover {
+    background-color: #414843;
+    border: 2px solid #aab3a4;
+    color:rgb(189, 188, 188)
 }
 
 .output {
