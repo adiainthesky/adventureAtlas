@@ -8,7 +8,7 @@ import Logout from './Logout';
 import './loginLogout.css'
 
 
-const SignUp = ({setID}) => {
+const SignUp = ({setID, setModalState}) => {
     
     const users = db.collection('users')
     // const { docs: users } = useFirestore('users');
@@ -101,6 +101,7 @@ const SignUp = ({setID}) => {
                 setID(null);
                 setUser(null);
             }
+            setModalState(false);
         });
     };
 
