@@ -37,7 +37,7 @@ const TripDisplay = ({ trips, id, userID, poster_ID, deleteTrip }) => {
                 {/* <h2> Type of Experience: </h2> {selectedDoc["0"]["tripType"]} */}
                 <p>{selectedDoc["0"]["description"]}</p>
                 {selectedDoc["0"]["poster_id"] === userID && ( 
-                <button onClick={() => deleteTrip(id)}>Delete</button>
+                <button className="deleteButton" onClick={() => deleteTrip(id)}>Delete</button>
                 )}
                 
             </div>

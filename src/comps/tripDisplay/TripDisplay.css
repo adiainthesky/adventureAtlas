@@ -16,7 +16,7 @@ h1, h2, p {
     line-height: 1.5em;
 }
 
-button {
+button.deleteButton {
     margin-left: 115px;
     background-color: #b48475;
     border-color: #7e5b50;
@@ -28,7 +28,7 @@ button {
     width: 25%;
 }
 
-button:hover {
+button.deleteButton:hover {
     background-color: #7e5b50;
     border-color: #b48475;
 }
