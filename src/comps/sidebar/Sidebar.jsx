@@ -43,9 +43,9 @@ const Sidebar = ({activateModal}) => {
                         </text>
                         <text className="sideTextIcon">
                         <br />
-                        ☕ = “cultural” experiences.  These could range anywhere from dancing to Vallenato on the beach in Baranquilla, Colombia, to sipping chai in a hip cafe in Mumbai, to visiting the ruins of Angkor Wat.
+                        ☕ = “cultural” experiences.  These could range anywhere from dancing to Vallenato on the beach in Baranquilla, to sipping chai in a hip cafe in Mumbai, to visiting the ruins of Angkor Wat.
                         <br />
-                        🌴 = “nature” experience.  These include things like kayaking trips down the Colorado river, volunteering with injured manatees in Belize, or having a picnic in the forest in Bulgaria.  
+                        🌴 = “nature” experience.  These include things like kayaking trips down the Colorado river, volunteering with injured manatees in Belize, or having a picnic in a forest in Bulgaria.  
                         <br />
                         🧳 = general, uncategorized experiences and can represent the gamut of travel adventures. 
                         <br />
