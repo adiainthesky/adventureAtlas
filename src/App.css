@@ -1,7 +1,7 @@
 * {
   /* this is critical for making sure there are no hite spaces between the tiles and at edge of map */
   margin: 0;
-  /* padding: 0; */
+  padding: 0;
   font-family: papyrus, Luminari, Marker Felt;
 }
 

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { fire } from '../../firebase/config';
-// import useFirestore from '../../hooks/useFirestore';
 import { db } from '../../firebase/config';
-// import { users } from '../../firebase/config';
 import Login from './Login';
 import Logout from './Logout';
 import './loginLogout.css'
@@ -11,15 +9,12 @@ import './loginLogout.css'
 const SignUp = ({setID, setModalState}) => {
     
     const users = db.collection('users')
-    // const { docs: users } = useFirestore('users');
     const [user, setUser] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [emailError, setEmailError] = useState("");
     const [passwordError, setPasswordError] = useState("");
     const [hasAccount, setHasAccount] = useState(false);
-    
-    // const loadNewUserID = (uid) => setID(uid)
 
     const clearInputs = () => {
         setEmail("");
@@ -39,7 +34,6 @@ const SignUp = ({setID, setModalState}) => {
         .catch((error) => {
             console.error("Error writing document: ", error);
         });
-        // loadNewUserID(user.user.uid)
     }
 
     const handleLogin = () => {
@@ -47,7 +41,7 @@ const SignUp = ({setID, setModalState}) => {
         fire
         .auth()
         .signInWithEmailAndPassword(email, password)
-        // this works for Singup but mabe not login
+        // this works for Singup but maybe not login
         .then(user => {handleStoreUser(user)})
         .catch(err => {
             switch(err.code){
@@ -85,7 +79,6 @@ const SignUp = ({setID, setModalState}) => {
 
     const handleLogout = () => {
         fire.auth().signOut();
-        // loadNewUserID(null)
     };
 
     const authListener = () => {
@@ -94,8 +87,7 @@ const SignUp = ({setID, setModalState}) => {
                 clearInputs();
                 setID(user.uid);
                 setUser(user.uid);
-                // setID(user.user.uid);
-                // setUser(user.user.uid);
+
             }   
             else {
                 setID(null);

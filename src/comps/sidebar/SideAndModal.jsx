@@ -10,9 +10,7 @@ const SideAndModal = ({setID, userID}) => {
 
     return (
         <div>
-            {/* {modalState ? <BasicModal /> : ""} */}
             <BasicModal setID={setID} userID={userID}/>
-            {/* <h1> Welcome to the Adventure Atlas!</h1> */}
             <Sidebar activateModal={toggleModalState}/>
         </div>
     )

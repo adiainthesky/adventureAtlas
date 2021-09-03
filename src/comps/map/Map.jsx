@@ -1,25 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { MapContainer, useMapEvent, Marker, Popup, TileLayer, ZoomControl } from "react-leaflet";
+import { MapContainer, Marker, Popup, TileLayer, ZoomControl } from "react-leaflet";
 import { Icon } from "leaflet";
 import './Map.css';
 import { MapClickHandler } from "./MapClickHandler";
-import ImgUpload from "../../components/ImgUpload";
-import UploadForm from '../oldTripDisplay/UploadForm';
-import ImageGrid from '../oldTripDisplay/ImageGrid';
-import FrontImg from '../oldTripDisplay/FrontImg';
 import TripUpload from '../tripUpload/TripUpload';
 import TripDisplay from '../tripDisplay/TripDisplay';
-import Sidebar from "../sidebar/Sidebar";
 import useFirestore from '../../hooks/useFirestore';
-import useData from '../../hooks/useData';
 import leaf from '../../thumbtacks/leaf.svg';
 import mug from '../../thumbtacks/mug.svg';
 import suitcase from '../../thumbtacks/suitcase.svg';
 
-
 export const luggage = new Icon({iconUrl: suitcase, iconSize: [20, 20]});
-export const plant = new Icon({iconUrl: leaf, iconSize: [27, 27]});
-export const tea = new Icon({iconUrl: mug, iconSize: [32, 32]});
+export const plant = new Icon({iconUrl: leaf, iconSize: [29, 29]});
+export const tea = new Icon({iconUrl: mug, iconSize: [34, 34]});
 
 export const determineIcon = (tripType) => {
     switch (tripType) {
@@ -30,7 +23,7 @@ export const determineIcon = (tripType) => {
 }
 
 const Map = ({userID, setMessage, setWelcome}) => {
-    // look for obj "docs " in useFirestore adn allows us to rename it as var "trips"
+    // look for obj "docs " in useFirestore and allows us to rename it as var "trips"
     const { db, docs: trips } = useFirestore('trips');
     const [lat_lng, setLat_Lng] = useState(null);
     const [uploadIsActive, setUploadIsActive] = useState(false);
@@ -44,11 +37,6 @@ const Map = ({userID, setMessage, setWelcome}) => {
         const currentTrip = db.collection("trips").doc(trip)
         currentTrip.delete()
         .then(() => {
-            // create shallow copy so that im not modifying the actual locations (because this is a rule of useState -- to avoid unintended consequences)
-            // const newLocations = [...locations]
-            // console.log(trip)
-            // newLocations.splice(newLocations.indexOf(trip), 1)
-            // setLocations(newLocations)
             setMessage('Your trip has been deleted!');
         })
         .catch(error => {
@@ -58,7 +46,6 @@ const Map = ({userID, setMessage, setWelcome}) => {
 
     return (
         <div className="map">
-            {/* <Sidebar />  */}
              {/* set zoomControl to false since i am importing a new one that i can adjust */}
             <MapContainer 
                 center={[5.555, -25]} 
@@ -69,12 +56,6 @@ const Map = ({userID, setMessage, setWelcome}) => {
                 continuousWorld={false}
                 worldCopyJump={true}
 
-                // maxBounds={[
-                //      //south west
-                //      [40.712, -74.227],
-                //      //north east
-                //      [40.774, -74.125]
-                //  ]}>
                 >
                 <ZoomControl position="bottomright" zoomInText="🔎" zoomOutText="🌎"></ZoomControl>
                 <MapClickHandler onClick={ (event)=> {
@@ -102,13 +83,10 @@ const Map = ({userID, setMessage, setWelcome}) => {
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> 
                     contributors'
                     continuousWorld={false}
-                    // noWrap={true}
                     />
 
                 {locations && locations.map(location => ( 
-                    // <Marker key={location.id} position={location} icon={ location.tripType==="2" ? thumbtack : plant}>
                     <Marker key={location.id} position={location} icon={determineIcon(location.tripType)}>
-                    {/* <Marker key={location.id} position={location} icon={ (location.location==="Morocco" ?? thumbtack) || (location.location==="Bolivia" ?? plant) || altThumbtack}> */}
                         <Popup >            
                             <div className="pop-up-bubble">
                                 <TripDisplay trips={trips} id={location.id} userID={userID} poster_ID={location.poster_ID} deleteTrip={deleteTrip}/>

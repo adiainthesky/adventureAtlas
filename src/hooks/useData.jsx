@@ -1,5 +1,5 @@
 import { db } from '../firebase/config';
-import React,{ useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const useData = (collection) => {
     const [trips,setTrips]= useState([]);

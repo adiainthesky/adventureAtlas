@@ -4,9 +4,7 @@ import './loginLogout.css'
 const Logout = ({handleLogout}) => {
     return (
         <section className="logout">
-            {/* <nav> */}
-                <button className="logoutButton" onClick={handleLogout}>Logout</button>
-            {/* </nav> */}
+            <button className="logoutButton" onClick={handleLogout}>Logout</button>
         </section>
     )
 }

@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import "./tripUpload.css"
-import { MapContainer, useMapEvent, Marker, Popup, TileLayer, ZoomControl } from "react-leaflet";
 import { projectStorage, db } from '../../firebase/config.js'
-import ProgressBar from '../../OLD_and_Unused/ProgressBar';
 
 const uploadTripToDB = ( userID, lat, lng, tripData, setLoader, setMessage ) => {
     const { tripName, location, tripType, description, url } = tripData
@@ -25,7 +23,6 @@ const uploadTripToDB = ( userID, lat, lng, tripData, setLoader, setMessage ) => 
         alert(error.message);
         setLoader(false);
     });
-    
 }
 
 const TripUpload = ({userID, lat, lng, setMessage}) => {
@@ -35,10 +32,8 @@ const TripUpload = ({userID, lat, lng, setMessage}) => {
     const [photo, setPhoto] = useState(null);
     const [error, setError] = useState(null);
     const [tripType, setTripType] = useState(1);
-
     const [loader, setLoader] = useState(false);
-    const [progress, setProgress] = useState(0);
-
+    
     const types = ['image/png', 'image/jpeg'];    
     
     const resetStateAfterUpload = () => {
@@ -58,8 +53,6 @@ const TripUpload = ({userID, lat, lng, setMessage}) => {
             const storageRef = projectStorage.ref(photo.name);
 
             storageRef.put(photo).on('state_changed', (snap) => {
-                let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
-                setProgress(percentage);
             }, (err) => {
                 setError(err);
             }, async () => {
@@ -67,7 +60,6 @@ const TripUpload = ({userID, lat, lng, setMessage}) => {
                 // const createdAt = timestamp();
                 // collectionRef.add({ url, createdAt });
                 // setUrl(url);
-
                 uploadTripToDB(userID, lat, lng, { tripName, location, tripType, description, url }, setLoader, setMessage)
                 resetStateAfterUpload()
             })
@@ -76,17 +68,6 @@ const TripUpload = ({userID, lat, lng, setMessage}) => {
                 setLoader(false);
             } 
     };
-
-
-    // if (selected && types.includes(selected.type)) {
-    //     setPhoto(selected);
-    //     setError('');
-    // } else {
-    //     setPhoto(null);
-    //     setError('Please select a .png or .jpeg image file');
-    // }
-
-
 
     const changeHandler = (e) => {
         let selected = e.target.files[0];
@@ -108,14 +89,12 @@ const TripUpload = ({userID, lat, lng, setMessage}) => {
                 value={tripName}
                 onChange={(e) => setTripName(e.target.value)} 
                 />
-
             <label>Location</label>
             <input 
                 placeholder="Location"
                 value={location}
                 onChange={(e) => setLocation(e.target.value)} 
                 />
-
             <label>Type</label>
             <select 
                 value={tripType} 
@@ -128,7 +107,6 @@ const TripUpload = ({userID, lat, lng, setMessage}) => {
                 <option value="3">Nature</option>
             </select>
 
-            
             <label>Adventure Story</label>
             <textarea 
                 placeholder="Please share a few words about your special memory in this place"
@@ -137,11 +115,8 @@ const TripUpload = ({userID, lat, lng, setMessage}) => {
                 ></textarea>
 
             <label>Photo</label>
-            {/* <form className="photo-upload-button"> */}
                 <input className="photo-upload-button"
                     type="file"
-                    // placeholder="Photo"
-                    // value={photo}
                     onChange={changeHandler} 
                 />
                 <div className="output">
@@ -150,10 +125,8 @@ const TripUpload = ({userID, lat, lng, setMessage}) => {
                 {/* this shows the name of the file if it uploaded */}
                 { photo && <div> Uploaded: { photo.name }</div> }
                 </div> 
-            {/* </form> */}
             
             {/* if loading is true, button will change color */}
-            {/* <button type="submit" style={{background : loader ? "#ccc" : " green" }}> */}
             <button type="submit" className={!loader ? "add-trip-button" : "add-trip-button loading"} >
                 Add trip!
             </button>

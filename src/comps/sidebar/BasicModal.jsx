@@ -24,12 +24,9 @@ const BasicModal = ({setID, userID}) => {
         <div className='signInModalComponent'>
             <div  className={`signInModalBackground modalShowing-${modalState}`}>
                 <div ref={menuRef} className="signInModalInner">
-                    {/* <h2>Basicrmation about the site</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam modi delectus vero nostrum accusantium perspiciatis atque ad aliquid incidunt a corrupti quo quam necessitatibus enim saepe, corporis iure consectetur neque? </p> */}
                     <SignUp setID={setID} setModalState={setModalState}/>
                 </div>
             </div>
-            {/* <button className="loginLogout" onClick={() => toggleModalState()}>Login/Logout</button> */}
             <div className="loginLogout" onClick={() => toggleModalState()}>
                 {userID ? "Logout": "Login to add your adventures!"
                 }

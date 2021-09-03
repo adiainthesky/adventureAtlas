@@ -5,8 +5,9 @@
 </div>
 
 <div align="center">
-![](src/imgs/welcome.png)
-<img src="./img/GoinOffGrid.png" width="30%" height="auto" >
+<img src="/imgs/welcome.png" alt="Welcome" width="250" height="500">.
+<!-- ![](src/imgs/welcome.png) -->
+<img src="/imgs/welcome.png" width="30%" height="auto" >
 </div>
 <h3 align="center">Created: 8.17.2021 | Last Updated: 8.18.2021</h3>
 <h4 align="center"> By Adelaide Nalley</h4>
@@ -62,7 +63,7 @@ On occasion, trip upload will not function if a prior attempt was unusccessful d
 
 ## Support and Contact Details
 
-If any errors or bugs occur please email, <adiainthesky@gmail.com>.
+If any errors or bugs occur please email <adiainthesky@gmail.com>.  If you would like to contribute to the app (e.g. by improving the documentation, solving a bug or adding a cool new feature), please send me your pull request.
 
 ## Technologies Used
 
@@ -77,7 +78,6 @@ If any errors or bugs occur please email, <adiainthesky@gmail.com>.
 - React-Leaflet
 - React
 - VSCode
-
 
 ### License
 

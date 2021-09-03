@@ -1,24 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import './Messages.css'
 
 const Welcome = () => {
     
     const [welcomeState, setWelcomeState] = useState(true);
     const toggleWelcomeState = () => setWelcomeState(false)
-
-    // setting and using the useRef() lets me identify the container, which i can then use to say 
-    const menuRef = useRef()
-
-    // useEffect(() => {
-    //     if (!menuRef.current) {
-    //         return
-    //     }
-    //     document.addEventListener("mousedown", (e) => {
-    //         if (!menuRef.current.contains(e.target))
-    //         setWelcomeState(false)
-    //     });
-    // });
-
 
     return (
         <div className='welcomeComponent'>
